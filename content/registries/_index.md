@@ -1,10 +1,10 @@
 ---
 title: "Registries"
-date: 2017-10-17T15:26:15Z
-lastmod: 2018-12-08T15:26:15Z
-publishdate: 2018-11-23T15:26:15Z
+date: 2019-06-18T16:42:20+02:00
+lastmod: 2019-06-18T16:42:20+02:00
+publishdate: 2019-06-18T16:42:20+02:00
 draft: false
-weight: 2
+weight: 22
 ---
 
 ## [Installation](./installation)
