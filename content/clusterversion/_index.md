@@ -7,10 +7,11 @@ draft: false
 weight: 14
 ---
 
-## [Installation](./installation)
+# Switch clusterversion channel
 
-Download Hugo theme, configure, preview site ...
-
-## [Configuration](./configuration)
-
-You may specify options in config.toml (or config.yaml/config.json) of your site to make use of this theme's features.
+```
+oc patch \
+   --patch='{"spec": {"channel": "prerelease-4.1"}}' \
+   --type=merge \
+   clusterversion/version
+```

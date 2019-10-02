@@ -7,10 +7,47 @@ draft: false
 weight: 15
 ---
 
-## [Installation](./installation)
+# Get CRI-O settings
 
-Download Hugo theme, configure, preview site ...
+```
+oc get containerruntimeconfig
+```
 
-## [Configuration](./configuration)
+# OCP Master configuration
+The master configuration is now stored in a `configMap`. During the installation
+process, a few `configMaps` are created, so in order to get the latest:
 
-You may specify options in config.toml (or config.yaml/config.json) of your site to make use of this theme's features.
+```
+oc get cm -n openshift-kube-apiserver | grep config
+```
+
+Observe the latest id and then:
+
+```
+oc get cm -n openshift-kube-apiserver config-ID
+```
+
+To get the output in a human-readable form, use:
+
+```
+oc get cm -n openshift-kube-apiserver config-ID \
+  -o jsonpath='{.data.config\.yaml}' | jq
+```
+
+For the OpenShift api configuration:
+
+```
+oc get cm -n openshift-apiserver config -o jsonpath='{.data.config\.yaml}' | jq
+```
+
+# Observe the SDN configuration
+
+```
+oc get cm sdn-config -o yaml -n openshift-sdn
+```
+
+Or:
+
+```
+oc exec -n openshift-sdn $(oc get pods -n openshift-sdn -l app=sdn --no-headers=true -o custom-columns=:metadata.name|head -n1) cat /config/{kube-proxy-config,sdn-config}.yaml
+```

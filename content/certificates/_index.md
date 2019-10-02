@@ -7,10 +7,8 @@ draft: false
 weight: 11
 ---
 
-## [Installation](./installation)
+# Sign all the pending `csr`
 
-Download Hugo theme, configure, preview site ...
-
-## [Configuration](./configuration)
-
-You may specify options in config.toml (or config.yaml/config.json) of your site to make use of this theme's features.
+```
+oc get csr -o name | xargs oc adm certificate approve
+```

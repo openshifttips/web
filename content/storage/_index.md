@@ -7,10 +7,8 @@ draft: false
 weight: 25
 ---
 
-## [Installation](./installation)
+# Get default StorageClass name
 
-Download Hugo theme, configure, preview site ...
-
-## [Configuration](./configuration)
-
-You may specify options in config.toml (or config.yaml/config.json) of your site to make use of this theme's features.
+```
+oc get sc -o jsonpath='{.items[?(@.metadata.annotations.storageclass\.kubernetes\.io/is-default-class=="true")].metadata.name}'
+```

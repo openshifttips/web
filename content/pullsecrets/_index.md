@@ -7,10 +7,18 @@ draft: false
 weight: 21
 ---
 
-## [Installation](./installation)
+# Update pull secret without reinstalling
 
-Download Hugo theme, configure, preview site ...
+The pull secret required to be able to pull images from the Red Hat registries
+is stored in the `pull-secret` secret hosted in the `openshift-config`
+namespace.
 
-## [Configuration](./configuration)
+It is just a matter of modifying that secret with the updated one (in base64):
 
-You may specify options in config.toml (or config.yaml/config.json) of your site to make use of this theme's features.
+```
+oc edit secret -n openshift-config pull-secret
+```
+
+NOTE: That secret is translated by the machine-config operator into the
+`/var/lib/kubelet/config.json` file so in order to update it is required for the
+hosts to be rebooted (which is done automatically by the mc operator)

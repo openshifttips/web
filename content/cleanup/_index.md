@@ -7,10 +7,14 @@ draft: false
 weight: 12
 ---
 
-## [Installation](./installation)
+# Delete 'Completed' pods
 
-Download Hugo theme, configure, preview site ...
+During the installation process, a few temporary pods are created. Keeping those
+pods as 'Completed' doesn't harm nor waste resources but if you want to delete
+them to have only 'running' pods in your environment you can use the following
+command:
 
-## [Configuration](./configuration)
-
-You may specify options in config.toml (or config.yaml/config.json) of your site to make use of this theme's features.
+```
+oc get pods --all-namespaces | \
+  awk '{if ($4 == "Completed") system ("oc delete pod " $2 " -n " $1 )}'
+```
