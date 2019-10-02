@@ -48,8 +48,15 @@ oc debug node/<node> --image=rhel7/rhel-tools
 
 This will allow you to run `tcpdump` and other tools. Use it with caution!!!
 
-# Sign all the pending `csr`
+# Copy a file to a node
+
+(Ab)using `oc debug`:
 
 ```
-oc get csr -o name | xargs oc adm certificate approve
+echo "test" >> ./myfile
+
+oc debug node/<node> --image rhel7/rhel-tools -- \
+  bash -c 'cat > host/tmp/myfile-remote' <(cat myfile )
 ```
+
+Kudos to [Juanlu](https://github.com/juanluisvaladas)

@@ -6,4 +6,4 @@ publishdate: 2018-11-23T15:26:15Z
 draft: false
 ---
 
-Welcome y'all
+Collection of OpenShift 4 tips and tricks to make your container life easier :)
