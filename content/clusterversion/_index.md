@@ -58,31 +58,31 @@ metadata:
 
 * If there are currently no other overrides configured:
 
-```
+```yaml
 cat <<EOF >version-patch.yaml
 - op: add
-	path: /spec/overrides
-	value:
-	- kind: Deployment
-		group: apps
-		name: cluster-network-operator
-		namespace: openshift-network-operator
-		unmanaged: true
+  path: /spec/overrides
+  value:
+  - kind: Deployment
+    group: apps
+    name: cluster-network-operator
+    namespace: openshift-network-operator
+    unmanaged: true
 EOF
 ```
 
 * To add to list of already existing overrides:
 
-```
+```yaml
 cat <<EOF >version-patch.yaml
 - op: add
-	path: /spec/overrides/-
-	value:
-	- kind: Deployment
-		group: apps
-		name: cluster-network-operator
-		namespace: openshift-network-operator
-		unmanaged: true
+  path: /spec/overrides/-
+  value:
+  - kind: Deployment
+    group: apps
+    name: cluster-network-operator
+    namespace: openshift-network-operator
+    unmanaged: true
 EOF
 ```
 
