@@ -11,12 +11,10 @@ This site pretends to compile a list of OpenShift 4 tips, mainly one liners.
 
 # Contact
 
-The main authors of this site are:
+The main author of this site is [Eduardo Minguez](https://eduardominguez.es) but
+collaborations are appreciated :)
 
-* [Eduardo Minguez](https://eduardominguez.es)
-* [Sergio Garcia](http://gmbros.net)
-
-Feel free to contact us at <hello@openshift.tips> or add a new issue to the
+Feel free to contact me at <hello@openshift.tips> or add a new issue to the
 [repo](https://github.com/openshifttips/web/issues/new)
 
 # Howto
@@ -34,3 +32,7 @@ Also, we use [ForwardEmail.net](https://forwardemail.net/).
 Everything is free (as in beer) so anyone can build the same stuff at 0 cost :)
 Also, some of the tools used (such as Hugo and ForwardEmail) are open source as
 well \o/
+
+# Other
+
+[I prefer tabs vs spaces.](https://www.reddit.com/r/javascript/comments/c8drjo/nobody_talks_about_the_real_reason_to_use_tabs/)
