@@ -61,13 +61,13 @@ metadata:
 ```bash
 cat <<EOF >version-patch.yaml
 - op: add
-  path: /spec/overrides
-  value:
-  - kind: Deployment
-    group: apps
-    name: cluster-network-operator
-    namespace: openshift-network-operator
-    unmanaged: true
+	path: /spec/overrides
+	value:
+	- kind: Deployment
+		group: apps
+		name: cluster-network-operator
+		namespace: openshift-network-operator
+		unmanaged: true
 EOF
 ```
 
@@ -76,13 +76,13 @@ EOF
 ```bash
 cat <<EOF >version-patch.yaml
 - op: add
-  path: /spec/overrides/-
-  value:
-  - kind: Deployment
-    group: apps
-    name: cluster-network-operator
-    namespace: openshift-network-operator
-    unmanaged: true
+	path: /spec/overrides/-
+	value:
+	- kind: Deployment
+		group: apps
+		name: cluster-network-operator
+		namespace: openshift-network-operator
+		unmanaged: true
 EOF
 ```
 
