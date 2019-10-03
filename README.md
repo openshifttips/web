@@ -1,5 +1,7 @@
 # [openshift.tips](https://openshift.tips)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e9d32213-2089-4328-b53e-bb6b15efd960/deploy-status)](https://app.netlify.com/sites/openshifttips/deploys)
+
 This site pretends to compile a list of OpenShift 4 tips, mainly one liners.
 
 # Contact
