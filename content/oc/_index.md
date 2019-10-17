@@ -103,3 +103,50 @@ oc adm release info --commits quay.io/openshift-release-dev/ocp-release:4.1.18 |
 ```
 
 So, you can go to https://github.com/openshift/multus-cni/commits/0ad77469f3dbe7fa0a9cf5df5cd2a7fd3f099d2a to see the actual code.
+
+# View different channels and releases information
+
+Kudos to [Ryan Howe](https://github.com/rjhowe)
+
+OCP4 is released in different 'channels' ("prerelease-4.1", "stable-4.1", "candidate-4.2", "fast-4.2", "stable-4.2",...) that contains different releases.
+In order to view the different releases and some information, the following snippet can be used (in this example the "stable-4.2" channel is used):
+
+```
+curl -sH 'Accept: application/json' https://api.openshift.com/api/upgrades_info/v1/graph?channel="stable-4.2" | jq -S '.nodes | sort_by(.version | sub ("-rc";"") | split(".") | map(tonumber)) | .[]'
+```
+
+Output:
+
+```
+{
+  "metadata": {
+    "description": "",
+    "io.openshift.upgrades.graph.release.channels": "stable-4.2",
+    "io.openshift.upgrades.graph.release.manifestref": "sha256:c5337afd85b94c93ec513f21c8545e3f9e36a227f55d41bc1dfb8fcc3f2be129",
+    "url": "https://access.redhat.com/errata/RHBA-2019:2922"
+  },
+  "payload": "quay.io/openshift-release-dev/ocp-release@sha256:c5337afd85b94c93ec513f21c8545e3f9e36a227f55d41bc1dfb8fcc3f2be129",
+  "version": "4.2.0"
+}
+```
+
+This can be wrapped in a handy script such as:
+
+```
+#!/bin/bash
+
+PS3='Please enter your choice: '
+options=("prerelease-4.1" "stable-4.1" "candidate-4.2" "fast-4.2" "stable-4.2")
+
+_Command () {
+  echo "Showing upgrade channel: ${channel}"
+  curl -sH 'Accept: application/json'  https://api.openshift.com/api/upgrades_info/v1/graph?channel=${channel} | jq -S '.nodes | sort_by(.version | sub ("-rc";"") | split(".") | map(tonumber)) | .[]'
+}
+
+select opt in "${options[@]}"
+do
+  channel="${opt}"
+  _Command
+  break
+done
+```
