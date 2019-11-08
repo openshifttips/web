@@ -55,7 +55,8 @@ oc exec -n openshift-sdn $(oc get pods -n openshift-sdn -l app=sdn --no-headers=
 # Making Master Unscheduleable/Scheduleable
 To configure master as unscheduleable (when UPI installation without setting this prior to the install):
 ```
-#oc patch --type=merge --patch='{"spec":{"mastersSchedulable": false}}' schedulers.config.openshift.io cluster   
+oc patch --type=merge --patch='{"spec":{"mastersSchedulable": false}}' schedulers.config.openshift.io cluster
+
 scheduler.config.openshift.io/cluster patched
 ```
 
