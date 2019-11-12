@@ -94,9 +94,8 @@ done > $_tmpfile
 
 # process the previous list for each namespace and show the total size in human-readable values
 echo "Raw disk usage per namespace (not considering layers re-use):"
-
 for _namespace in $( cat $_tmpfile | cut -d \/ -f 1 | sort -u ); do
-  _size=$( grep $_namespace $_tmpfile | cut -d\: -f 2 | paste -s -d+ - | bc | numfmt --to=iec-i --suffix=B --padding=7)
+  _size=$( grep $_namespace $_tmpfile | cut -d\: -f 2 | paste -s -d+ - | bc | numfmt --to=iec-i --suffix=B --padding=7 )
   echo -e "- $_namespace\t$_size"
 done
 
