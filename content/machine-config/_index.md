@@ -133,3 +133,52 @@ spec:
         path: /etc/sysctl.d/99-elasticsearch.conf
 EOF
 ```
+
+# Modify MTU in a second interface in workers
+
+Sometimes a storage network interface is attached to nodes in order to reach an external storage. Probably you could need to modify the MTU in those interfaces. 
+
+You can do that adding an an script in dispatcher.d for NetworkManager service in the path `/etc/NetworkManager/dispatcher.d/`. But if SELinux is enabled in your installation you could have errors when the daemon execute that script. For that you should add a new one-shot systemd service for modify the context. 
+
+In this example the MTU of the interface `ens4` will change to `9000` (jumbo)
+
+```
+cat << EOF | oc create -f -
+kind: MachineConfig
+apiVersion: machineconfiguration.openshift.io/v1
+metadata:
+  name: 99-worker-mtu-v2
+  creationTimestamp: 
+  labels:
+    machineconfiguration.openshift.io/role: worker
+spec:
+  osImageURL: ''
+  config:
+    ignition:
+      version: 2.2.0
+    storage:
+      files:
+      - filesystem: root
+        path: "/etc/NetworkManager/dispatcher.d/30-mtu"
+        contents:
+          source: data:,%23%21%2Fbin%2Fsh%0AMTU%3D9000%0AINTERFACE%3Dens4%0A%0AIFACE%3D%241%0ASTATUS%3D%242%0Aif%20%5B%20%22%24IFACE%22%20%3D%20%22%24INTERFACE%22%20-a%20%22%24STATUS%22%20%3D%20%22up%22%20%5D%3B%20then%0A%20%20%20%20ip%20link%20set%20%22%24IFACE%22%20mtu%20%24MTU%0Afi%0A
+          verification: {}
+        mode: 0755
+    systemd:
+      units:
+        - contents: |
+            [Unit]
+            Requires=systemd-udevd.target
+            After=systemd-udevd.target
+            Before=NetworkManager.service
+            DefaultDependencies=no
+            [Service]
+            Type=oneshot
+            ExecStart=/usr/sbin/restorecon /etc/NetworkManager/dispatcher.d/30-mtu
+            [Install]
+            WantedBy=multi-user.target
+          name: one-shot-mtu.service
+          enabled: true
+
+EOF
+```
