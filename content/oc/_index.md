@@ -112,7 +112,7 @@ OCP4 is released in different 'channels' ("prerelease-4.1", "stable-4.1", "candi
 In order to view the different releases and some information, the following snippet can be used (in this example the "stable-4.2" channel is used):
 
 ```
-curl -sH 'Accept: application/json' https://api.openshift.com/api/upgrades_info/v1/graph?channel="stable-4.2" | jq -S '.nodes | sort_by(.version | sub ("-rc";"") | split(".") | map(tonumber)) | .[]'
+curl -sH 'Accept: application/json' "https://api.openshift.com/api/upgrades_info/v1/graph?channel=stable-4.2&arch=amd64" | jq -S '.nodes | sort_by(.version | sub ("-rc";"") | split(".") | map(tonumber)) | .[]'
 ```
 
 Output:
@@ -135,18 +135,25 @@ This can be wrapped in a handy script such as:
 ```
 #!/bin/bash
 
-PS3='Please enter your choice: '
+PS3='Please enter the channel: '
 options=("prerelease-4.1" "stable-4.1" "candidate-4.2" "fast-4.2" "stable-4.2")
+PS3='Please enter the arch: '
+options2=("amd64" "s390x" "ppc64le")
 
 _Command () {
-  echo "Showing upgrade channel: ${channel}"
-  curl -sH 'Accept: application/json'  https://api.openshift.com/api/upgrades_info/v1/graph?channel=${channel} | jq -S '.nodes | sort_by(.version | sub ("-rc";"") | split(".") | map(tonumber)) | .[]'
+  echo "Showing upgrade channel: ${channel} arch: ${arch}"
+  curl -sH 'Accept: application/json'  "https://api.openshift.com/api/upgrades_info/v1/graph?channel=${channel}&arch=${arch}" | jq -S '.nodes | sort_by(.version | sub ("-rc";"") | split(".") | map(tonumber)) | .[]'
 }
 
-select opt in "${options[@]}"
+select opt2 in "${options2[@]}"
 do
-  channel="${opt}"
-  _Command
+  select opt in "${options[@]}"
+  do
+    channel="${opt}"
+    arch="${opt2}"
+    _Command
+    break
+  done
   break
 done
 ```
