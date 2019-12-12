@@ -19,7 +19,8 @@ oc adm upgrade --to-latest
 
 ```
 CHANNEL='prerelease-4.1'
-curl -sH 'Accept: application/json' "https://api.openshift.com/api/upgrades_info/v1/graph?channel=${CHANNEL}" | jq .
+ARCH='amd64'
+curl -sH 'Accept: application/json' "https://api.openshift.com/api/upgrades_info/v1/graph?channel=${CHANNEL}&${ARCH}" | jq .
 ```
 
 * Apply the update
@@ -34,10 +35,10 @@ Kudos to [Ramon Gordillo](https://github.com/rgordill)
 
 Depending on the OCP version you can upgrade to some specific versions.
 
-For 4.1.10:
+For 4.1.10 for amd64:
 
 ```
-curl -s -XGET "https://api.openshift.com/api/upgrades_info/v1/graph?channel=stable-4.1" --header 'Accept:application/json' |jq '. as $graph | $graph.nodes | map(.version == "4.1.10") | index(true) as $orig | $graph.edges | map(select(.[0] == $orig)[1]) | map($graph.nodes[.])'
+curl -s -XGET "https://api.openshift.com/api/upgrades_info/v1/graph?channel=stable-4.1&arch=amd64" --header 'Accept:application/json' |jq '. as $graph | $graph.nodes | map(.version == "4.1.10") | index(true) as $orig | $graph.edges | map(select(.[0] == $orig)[1]) | map($graph.nodes[.])'
 ```
 
 Output is something similar to:
