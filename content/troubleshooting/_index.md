@@ -15,6 +15,44 @@ A handy one liner to see the pods having issues (such as CrashLoopBackOff):
 oc get pods --all-namespaces | grep -v -E 'Completed|Running'
 ```
 
+# Get node logs
+
+Display node journal:
+
+```
+oc adm node-logs <node>
+```
+
+Tail 10 lines from node journal:
+
+```
+oc adm node-logs --tail=10 <node>
+```
+
+Get kubelet journal logs only:
+
+```
+oc adm node-logs -u kubelet.service <node>
+```
+
+Grep `kernel` word on node journal:
+
+```
+oc adm node-logs --grep=kernel <node>
+```
+
+List `/var/log` contents:
+
+```
+oc adm node-logs --path=/ <node>
+```
+
+Get `/var/log/audit/audit.log` from node:
+
+```
+oc adm node-logs --path=audit/audit.log <node>
+```
+
 # Debug node issues
 
 OCP 4.1 is based on RHCOS and it is encouraged to not ssh into the hosts.
