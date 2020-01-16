@@ -157,3 +157,9 @@ do
   break
 done
 ```
+
+# Show logs for all containers running in the same pod
+
+```
+oc logs <pod> --all-containers
+```
