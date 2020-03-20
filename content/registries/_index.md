@@ -14,11 +14,14 @@ oc patch image.config.openshift.io/cluster -p \
 '{"spec":{"allowedRegistriesForImport":[{"domainName":"my.own.registry.example.com:8888","insecure":true}],"registrySources":{"insecureRegistries":["my.own.registry.example.com:8888"]}}}' --type='merge'
 ```
 
-# Configure custom/insecure registry to search path
+# Configure custom/insecure registry to search path in OCP 4.x
 
-There seems to be no way to remove/modify or append any additional entries to unqualified-search-registries line in /etc/containers/registries.conf file as of now (OCP 4.3).
+At this moment, there seems to be no way to remove/modify or append any additional entries to unqualified-search-registries line in /etc/containers/registries.conf file as of now (OCP <=4.3).
 
-There is way to modify the file using machineconfig which gets overwritten by editing `image.config.openshift.io/cluster` which will execute `99-master/worker-<uuid>-registries` and bring back the `unqualified-search-registries` again to the file, so this isn't the recommended way to perform the change. So to avoid to modify that CR, the machineconfig do the job that should be done by `image.config.openshift.io/cluster`. 
+A workaround to modify the file is using a machineconfig that do the job that should be done by `image.config.openshift.io/cluster` (full control of the /etc/containers/{policy.json,registries.conf} content).
+
+Yo have to be aware that it could gets overwritten by editing `image.config.openshift.io/cluster` which will execute `99-master/worker-<uuid>-registries` and bring back the `unqualified-search-registries` again to the file, so you must avoit to use the `image.config.openshift.io/cluster` afeter you applied the machineconfig. 
+
 
 ```
 apiVersion: machineconfiguration.openshift.io/v1
@@ -59,3 +62,12 @@ spec:
 
 > NOTE: <MachineConfigPool> possible values are **worker** or **master**.
 > <base64_content> is the content you want to put into the config files.
+
+You must apply the MachineConfig (master, worker or both it depends of your needs)
+```
+oc create -f 99_<MachineConfigPool>_container_runtime.yaml
+```
+Then wait for clusteroperators to finish and nodes to be ready and then one can confirm the modification by executing the command below:
+```
+oc wait mcp/<MachineConfigPool> --for condition=updated --timeout=600s
+```
