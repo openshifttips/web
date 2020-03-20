@@ -17,6 +17,15 @@ collaborations are appreciated :)
 Feel free to contact me at <hello@openshift.tips> or add a new issue to the
 [repo](https://github.com/openshifttips/web/issues/new)
 
+# Contributors
+
+* [soukron](https://github.com/openshifttips/web/commits?author=soukron)
+* [palonsoro](https://github.com/openshifttips/web/commits?author=palonsoro)
+* [manuvaldi](https://github.com/openshifttips/web/commits?author=manuvaldi)
+* [josgonza-rh](https://github.com/openshifttips/web/commits?author=josgonza-rh)
+* [aizuddin85](https://github.com/openshifttips/web/commits?author=aizuddin85)
+* [acomabon](https://github.com/openshifttips/web/commits?author=acomabon)
+
 # Howto
 
 This site is based on:
