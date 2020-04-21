@@ -46,7 +46,7 @@ oc get pods -n openshift-image-registry -o wide
 By default, there is no ConfigMap in place to control placement of monitoring components. Create the ConfigMap in the openshift-monitoring project:
 
 ```
-cat <<EOF | oc apply -n openshift-monitoring
+cat <<EOF | oc apply -n openshift-monitoring -f -
 apiVersion: v1
 kind: ConfigMap
 metadata:
