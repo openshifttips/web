@@ -26,7 +26,7 @@ oc label nodes ocp4-worker-0.example.com node-role.kubernetes.io/worker=""
 oc label nodes ocp4-worker-1.example.com node-role.kubernetes.io/worker=""
 oc get nodes
 ```
-Note: you may want to remove the node-role.kubernetes.io="" label from the masters, up to you.
+Note: you may want to remove the node-role.kubernetes.io/worker="" label from the masters, up to you.
 
 ## Move the router to the compute nodes
 
