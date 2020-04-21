@@ -12,30 +12,30 @@ weight: 13
 ## Create computes
 
 ```		
-$ oc label nodes ocp4-worker-0.example.com node-role.kubernetes.io/infra="" 
-$ oc label nodes ocp4-worker-1.example.com node-role.kubernetes.io/infra=""
-$ oc get nodes
+oc label nodes ocp4-worker-0.example.com node-role.kubernetes.io/infra="" 
+oc label nodes ocp4-worker-1.example.com node-role.kubernetes.io/infra=""
+oc get nodes
 ```
 
 ## Move the router to the compute nodes
 
 ```	
-$ oc patch ingresscontroller default -n openshift-ingress-operator --type=merge --patch='{"spec":{"nodePlacement":{"nodeSelector": {"matchLabels":{"node-role.kubernetes.io/infra":""}}}}}'
-$ oc patch --namespace=openshift-ingress-operator --patch='{"spec": {"replicas": 2}}' --type=merge ingresscontroller/default
-$ oc get pods -n openshift-ingress -o wide
+oc patch ingresscontroller default -n openshift-ingress-operator --type=merge --patch='{"spec":{"nodePlacement":{"nodeSelector": {"matchLabels":{"node-role.kubernetes.io/infra":""}}}}}'
+oc patch --namespace=openshift-ingress-operator --patch='{"spec": {"replicas": 2}}' --type=merge ingresscontroller/default
+oc get pods -n openshift-ingress -o wide
 ```
 
 ## Move the registry and the monitoring to the infra nodes
 
 ```
-$ oc patch configs.imageregistry.operator.openshift.io/cluster -n openshift-image-registry --type=merge --patch '{"spec":{"nodeSelector":{"node-role.kubernetes.io/infra":""}}}'
-$ oc get pods -n openshift-image-registry -o wide
+oc patch configs.imageregistry.operator.openshift.io/cluster -n openshift-image-registry --type=merge --patch '{"spec":{"nodeSelector":{"node-role.kubernetes.io/infra":""}}}'
+oc get pods -n openshift-image-registry -o wide
 ```
 
 By default, there is no ConfigMap in place to control placement of monitoring components. Create the ConfigMap in the openshift-monitoring project:
 
 ```
-$ cat <<EOF > $HOME/monitoring-cm.yaml
+cat <<EOF > $HOME/monitoring-cm.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -66,6 +66,6 @@ data:
 				node-role.kubernetes.io/infra: ""
 EOF
 
-$ oc create -f $HOME/monitoring-cm.yaml -n openshift-monitoring
-$ oc get pods -n openshift-monitoring -o wide
+oc create -f $HOME/monitoring-cm.yaml -n openshift-monitoring
+oc get pods -n openshift-monitoring -o wide
 ```
