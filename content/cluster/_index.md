@@ -22,8 +22,8 @@ oc get nodes
 
 You need to label them as:
 ```
-oc label nodes ocp4-worker-0.example.com node-role.kubernetes.io/infra="" 
-oc label nodes ocp4-worker-1.example.com node-role.kubernetes.io/infra=""
+oc label nodes ocp4-worker-0.example.com node-role.kubernetes.io/worker="" 
+oc label nodes ocp4-worker-1.example.com node-role.kubernetes.io/worker=""
 oc get nodes
 ```
 Note: you may want to remove the node-role.kubernetes.io="" label from the masters, up to you.
@@ -31,15 +31,15 @@ Note: you may want to remove the node-role.kubernetes.io="" label from the maste
 ## Move the router to the compute nodes
 
 ```	
-oc patch ingresscontroller default -n openshift-ingress-operator --type=merge --patch='{"spec":{"nodePlacement":{"nodeSelector": {"matchLabels":{"node-role.kubernetes.io/infra":""}}}}}'
+oc patch ingresscontroller default -n openshift-ingress-operator --type=merge --patch='{"spec":{"nodePlacement":{"nodeSelector": {"matchLabels":{"node-role.kubernetes.io/worker":""}}}}}'
 oc patch --namespace=openshift-ingress-operator --patch='{"spec": {"replicas": 2}}' --type=merge ingresscontroller/default
 oc get pods -n openshift-ingress -o wide
 ```
 
-## Move the registry and the monitoring stack to the infra nodes
+## Move the registry and the monitoring stack to the compute nodes
 
 ```
-oc patch configs.imageregistry.operator.openshift.io/cluster -n openshift-image-registry --type=merge --patch '{"spec":{"nodeSelector":{"node-role.kubernetes.io/infra":""}}}'
+oc patch configs.imageregistry.operator.openshift.io/cluster -n openshift-image-registry --type=merge --patch '{"spec":{"nodeSelector":{"node-role.kubernetes.io/worker":""}}}'
 oc get pods -n openshift-image-registry -o wide
 ```
 
@@ -56,25 +56,25 @@ data:
 		config.yaml: |+
 		alertmanagerMain:
 				nodeSelector:
-				node-role.kubernetes.io/infra: ""
+				node-role.kubernetes.io/worker: ""
 		prometheusK8s:
 				nodeSelector:
-				node-role.kubernetes.io/infra: ""
+				node-role.kubernetes.io/worker: ""
 		prometheusOperator:
 				nodeSelector:
-				node-role.kubernetes.io/infra: ""
+				node-role.kubernetes.io/worker: ""
 		grafana:
 				nodeSelector:
-				node-role.kubernetes.io/infra: ""
+				node-role.kubernetes.io/worker: ""
 		k8sPrometheusAdapter:
 				nodeSelector:
-				node-role.kubernetes.io/infra: ""
+				node-role.kubernetes.io/worker: ""
 		kubeStateMetrics:
 				nodeSelector:
-				node-role.kubernetes.io/infra: ""
+				node-role.kubernetes.io/worker: ""
 		telemeterClient:
 				nodeSelector:
-				node-role.kubernetes.io/infra: ""
+				node-role.kubernetes.io/worker: ""
 EOF
 
 oc get pods -n openshift-monitoring -o wide
