@@ -8,7 +8,7 @@ weight: 13
 ---
 
 # Move from 3 masters (control-plane) to 3 masters + workers cluster (control-plane + compute nodes)
-OCP4 allows to deploy control-plane only clusters or control-plane + compute nodes clusters. If you only deploy control-plane, the masters are labeled as workers as well, otherwise, they are labeled only as 'masters.
+OCP4 allows to deploy control-plane only clusters or control-plane + compute nodes clusters. If you only deploy control-plane, the masters are labeled as workers as well, otherwise, they are labeled only as masters.
 
 If you want to add workers to a control-plane only cluster, you should do the following:
 
