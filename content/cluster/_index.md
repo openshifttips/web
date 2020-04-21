@@ -23,18 +23,18 @@ $ oc get nodes
 $ oc patch ingresscontroller default -n openshift-ingress-operator --type=merge --patch='{"spec":{"nodePlacement":{"nodeSelector": {"matchLabels":{"node-role.kubernetes.io/infra":""}}}}}'
 $ oc patch --namespace=openshift-ingress-operator --patch='{"spec": {"replicas": 2}}' --type=merge ingresscontroller/default
 $ oc get pods -n openshift-ingress -o wide
-```		
-		
+```
+
 ## Move the registry and the monitoring to the infra nodes
 
 ```
 $ oc patch configs.imageregistry.operator.openshift.io/cluster -n openshift-image-registry --type=merge --patch '{"spec":{"nodeSelector":{"node-role.kubernetes.io/infra":""}}}'
 $ oc get pods -n openshift-image-registry -o wide
-```	
+```
 
 By default, there is no ConfigMap in place to control placement of monitoring components. Create the ConfigMap in the openshift-monitoring project:
 
-```		
+```
 $ cat <<EOF > $HOME/monitoring-cm.yaml
 apiVersion: v1
 kind: ConfigMap
@@ -65,8 +65,7 @@ data:
 				nodeSelector:
 				node-role.kubernetes.io/infra: ""
 EOF
-		
+
 $ oc create -f $HOME/monitoring-cm.yaml -n openshift-monitoring
 $ oc get pods -n openshift-monitoring -o wide
 ```
-
