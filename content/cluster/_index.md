@@ -80,15 +80,15 @@ EOF
 oc get pods -n openshift-monitoring -o wide
 ```
 
-## Setting the control plane nodes as NoSchedulable
+## Setting the control-plane nodes as NoSchedulable
 
-This point is optional as you may want to keep your control plane nodes schedulable (for example if you are running >=OCPv4), otherwise, you may want to mark them as NoScheduleble:
+This point is optional as you may want to keep your control-plane nodes schedulable (for example if you are running >=OCPv4), otherwise, you may want to mark them as NoSchedulable:
 
 ```
 for master in $(oc get nodes --selector="node-role.kubernetes.io/master" -o name); do oc adm taint ${master} node-role.kubernetes.io/master:NoSchedule; done
 ```
 
-If what you prefer is to patch the scheduler to don't schedule any workload int the control plane nodes you may execute:
+If what you prefer is to patch the scheduler to don't schedule any workload in the control-plane nodes you may execute:
 ```
 oc patch schedulers.config.openshift.io/cluster --type merge --patch '{"spec":{"mastersSchedulable": false}}'
 ```
