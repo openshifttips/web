@@ -26,7 +26,15 @@ watch -n5 oc get clusteroperators
 A handy one liner to see the pods having issues (such as CrashLoopBackOff):
 
 ```
-oc get pods --all-namespaces | grep -v -E 'Completed|Running'
+oc get pods -A -o wide | grep -v -E 'Completed|Running'
+```
+
+# Get cluster and operators status
+
+Combining the previous two tips and adding some more data:
+
+```
+watch -n5 "oc get nodes; oc get pods -A -o wide | grep -v -E 'Completed|Running'; oc get clusteroperators; oc get clusterversion; oc get machines -A; oc get machineconfigpool"
 ```
 
 # Get node logs
