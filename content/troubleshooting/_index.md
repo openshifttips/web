@@ -7,6 +7,20 @@ draft: false
 weight: 27
 ---
 
+# Get the status of all the operators in your cluster
+
+The following command is the easiest way to see the status of the cluster:
+
+```
+oc get clusteroperators
+```
+
+A little `addon` to the previous command very useful when you are upgrading your cluster:
+
+```
+watch -n5 oc get clusteroperators
+```
+
 # Get pods not running nor completed
 
 A handy one liner to see the pods having issues (such as CrashLoopBackOff):
