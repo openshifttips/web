@@ -58,21 +58,3 @@ Output is something similar to:
 ]
 
 ```
-
-# Get pull specs for all the release images
-
-```
-oc adm release info [<version>] --pullspecs
-```
-
-# Get the pull spec for one component's image
-
-```
-oc adm release info [<version>] --image-for=<component>
-```
-
-# Get commit URLs for all the release components
-
-```
-oc adm release info [<version>] --commit-urls
-```

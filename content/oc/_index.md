@@ -102,6 +102,26 @@ oc adm release info --commits quay.io/openshift-release-dev/ocp-release:4.1.18 |
   multus-cni                                    https://github.com/openshift/multus-cni                                    0ad77469f3dbe7fa0a9cf5df5cd2a7fd3f099d2a
 ```
 
+If you prefer the commit URLs directly, use this command instead.
+```
+oc adm release info --commit-urls quay.io/openshift-release-dev/ocp-release:<version>
+```
+
+# Get pull specs for all the release images
+
+```
+oc adm release info --pullspecs quay.io/openshift-release-dev/ocp-release:<version>
+```
+
+# Get the pull spec for one component's image
+
+```
+oc adm release info --image-for=<component> quay.io/openshift-release-dev/ocp-release:<version>
+```
+
+# Get commit URLs for all the release components
+
+
 So, you can go to https://github.com/openshift/multus-cni/commits/0ad77469f3dbe7fa0a9cf5df5cd2a7fd3f099d2a to see the actual code.
 
 # View different channels and releases information
