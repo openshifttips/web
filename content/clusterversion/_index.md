@@ -65,7 +65,7 @@ cat <<EOF >version-patch.yaml
   value:
   - kind: Deployment
     group: apps
-    name: cluster-network-operator
+    name: network-operator
     namespace: openshift-network-operator
     unmanaged: true
 EOF
@@ -80,7 +80,7 @@ cat <<EOF >version-patch.yaml
   value:
   - kind: Deployment
     group: apps
-    name: cluster-network-operator
+    name: network-operator
     namespace: openshift-network-operator
     unmanaged: true
 EOF
