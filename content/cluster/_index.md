@@ -94,3 +94,11 @@ If what you prefer is to patch the scheduler to don't schedule any workload in t
 ```
 oc patch schedulers.config.openshift.io/cluster --type merge --patch '{"spec":{"mastersSchedulable": false}}'
 ```
+
+# List all container images running in a cluster
+
+https://kubernetes.io/docs/tasks/access-application-cluster/list-all-running-container-images/
+
+```
+oc get pods -A -o go-template --template='{{range .items}}{{range .spec.containers}}{{printf "%s\n" .image -}} {{end}}{{end}}' | sort -u | uniq
+```
