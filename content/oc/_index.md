@@ -261,3 +261,10 @@ If you want to merge multiple kubeconfig files you can run the following command
         NAME      VERSION                             AVAILABLE   PROGRESSING   SINCE   STATUS
         version   4.4.0-0.nightly-2020-03-26-010528   True        False         52m     Cluster version is 4.4.0-0.nightly-2020-03-26-010528
         ```
+
+# Show events ordered by timestamp
+
+```
+oc get event --sort-by=.metadata.creationTimestamp
+```
+
