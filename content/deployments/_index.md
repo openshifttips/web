@@ -61,3 +61,15 @@ oc set env deployment/mydeployment --containers="c1" OTHERVAR-
 ```
 oc set env deployments --all --containers="c1" OTHERVAR-
 ```
+
+# Show logs for all containers within a pod
+
+```
+oc logs <pod> --all-containers
+```
+
+# Show logs for all containers within a pod with pod name and container name
+
+```
+oc logs <pod> --all-containers --prefix
+```
