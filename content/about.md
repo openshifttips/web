@@ -11,7 +11,7 @@ This site pretends to compile a list of OpenShift 4 tips, mainly one liners.
 
 # Contact
 
-The main author of this site is [Eduardo Minguez](https://eduardominguez.es) but
+The main author of this site is [Eduardo Minguez](https://www.eduardominguez.es) but
 collaborations are appreciated :)
 
 Feel free to contact me at <hello@openshift.tips> or add a new issue to the
