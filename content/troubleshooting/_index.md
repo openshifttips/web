@@ -37,6 +37,13 @@ Combining the previous two tips and adding some more data:
 watch -n5 "oc get nodes; oc get pods -A -o wide | grep -v -E 'Completed|Running'; oc get clusteroperators; oc get clusterversion; oc get machines -A; oc get machineconfigpool"
 ```
 
+# Get events
+
+Display events in a chronology order:
+```
+oc get event --sort-by=.metadata.creationTimestamp
+```
+
 # Get node logs
 
 Display node journal:
