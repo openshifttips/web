@@ -60,3 +60,8 @@ oc patch --type=merge --patch='{"spec":{"mastersSchedulable": false}}' scheduler
 scheduler.config.openshift.io/cluster patched
 ```
 
+# Get Settings used in install config
+
+```
+oc get cm -n kube-system cluster-config-v1 -o yaml
+```
