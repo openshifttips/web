@@ -1,0 +1,31 @@
+{
+  "name": "gatsby-starter-code-notes",
+  "description": "A simplified bare-bones starter for the Code Notes Gatsby theme",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "name": "Zander Martineau",
+    "url": "https://zander.wtf"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "dev": "gatsby develop",
+    "start": "gatsby serve"
+  },
+  "dependencies": {
+    "gatsby": "^2.23.1",
+    "gatsby-theme-code-notes": "1.7.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrmartineau/gatsby-starter-code-notes"
+  },
+  "bugs": {
+    "url": "https://github.com/mrmartineau/gatsby-starter-code-notes/issues"
+  }
+}
