@@ -2,6 +2,7 @@
 title: Display etcd member table
 tags:
   - Openshift 4
+  - Cluster Administration
   - etcd
 emoji: 🧹
 link: https://docs.openshift.com/
