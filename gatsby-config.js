@@ -1,8 +1,8 @@
 module.exports = {
   pathPrefix: "/openshift-compendium",
   siteMetadata: {
-    title: 'The Openshift Compendium',
-    description: `The Openshift Compendium`,
+    title: 'Openshift Compendium',
+    description: `Openshift Compendium`,
     author: 'Alex Kretzschmar',
   },
   plugins: [
@@ -11,7 +11,7 @@ module.exports = {
       options: {
         contentPath: 'notes',
         basePath: '/',
-        showThemeInfo: true,
+        showThemeInfo: false,
         showDescriptionInSidebar: true,
       },
     },
