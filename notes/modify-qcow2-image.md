@@ -3,7 +3,7 @@ title: Edit qcow2 image with virt-edit
 tags:
   - Openshift 4
   - Installation
-emoji: 🧹
+#emoji: 🧹
 link: https://docs.openshift.com/
 ---
 

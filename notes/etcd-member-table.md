@@ -4,7 +4,7 @@ tags:
   - Openshift 4
   - Admin Tasks
   - etcd
-emoji: 🧹
+#emoji: 🧹
 link: https://access.redhat.com/solutions/4985441
 ---
 
