@@ -2,8 +2,8 @@
 title: Cleanup completed pods
 tags:
   - Openshift 4
+  - Admin Tasks
   - Cleanup
-  - Cluster Administration
 emoji: 🧹
 link: https://docs.openshift.com/
 ---

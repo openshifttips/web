@@ -1,6 +1,7 @@
 ---
 title: Useful Blog Posts
 tags:
+  - Openshift 4
   - Blog Posts
   - VMWare
 emoji: ⌨️

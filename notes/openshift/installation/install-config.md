@@ -1,7 +1,7 @@
 ---
 title: Samples of install-config.yaml
 tags:
-  - Cluster Installation
+  - Installation
 emoji: ⌨️
 link: https://docs.openshift.com/container-platform/4.4/installing/installing_bare_metal/installing-bare-metal.html#installation-bare-metal-config-yaml_installing-bare-metal
 ---

@@ -2,7 +2,7 @@
 title: Approve all CSRs
 tags:
   - Openshift 4
-  - Cluster Administration
+  - Admin Tasks
   - CSRs
 emoji: 🎓
 link: https://google.com
