@@ -6809,10 +6809,10 @@ gatsby-telemetry@^1.3.11:
     stack-utils "1.0.2"
     uuid "3.4.0"
 
-gatsby-theme-code-notes@1.7.1:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-code-notes/-/gatsby-theme-code-notes-1.7.1.tgz#9d7a5f906a90f751ac19dbaf085c1ca4d59c0471"
-  integrity sha512-neNjClii/dRAfRrnmpTwxAW88LXaTO1tnmfFc2V4dpDZwrppnf4UIdzlxMhOo5Lyn6b68brlRb8PPtaW3ZZU6g==
+gatsby-theme-code-notes@1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-code-notes/-/gatsby-theme-code-notes-1.7.2.tgz#9a21fd751add8ea959150dd9cb99a316fee2be98"
+  integrity sha512-CWB/PXSHfdDZKwOn54eTA14qkJ1CI5KYhiGRWHOU9ZbCvWVeTo7RqXIosS6d8RLsly+5cqu6HAEIiCB80XvDPA==
   dependencies:
     "@alexcarpenter/slugify" "^1.0.6"
     "@mdx-js/mdx" "^1.6.5"
