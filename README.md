@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # [openshift.tips](https://openshift.tips)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e9d32213-2089-4328-b53e-bb6b15efd960/deploy-status)](https://app.netlify.com/sites/openshifttips/deploys)
@@ -37,5 +36,5 @@ well \o/
 
 This repo contains handy commands, snippets and other tips + tricks for working with OpenShift Container Platform.
 
-To contribute please open a PR by contributing a `.md` file (or several) to the `notes/` folder. Please keep PRs scoped by topic. For example, if added a few commands and a few example snippets, open two PRs.
->>>>>>> 147b9be (updated README)
+
+To contribute please open a PR by contributing a `.md` file (or several) to the `notes/` folder. Please keep PRs scoped by topic. For example, if adding a few commands and a few example snippets, open two PRs.
