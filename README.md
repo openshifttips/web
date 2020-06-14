@@ -34,6 +34,8 @@ well \o/
 =======
 # Openshift Compendium
 
+![Gatsby Publish](https://github.com/IronicBadger/openshift-compendium/workflows/Gatsby%20Publish/badge.svg)
+
 This repo contains handy commands, snippets and other tips + tricks for working with OpenShift Container Platform.
 
 
