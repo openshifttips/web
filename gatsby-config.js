@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "/openshift-compendium",
+  pathPrefix: "/",
   siteMetadata: {
     title: 'Openshift Compendium',
     description: `Openshift Compendium`,
