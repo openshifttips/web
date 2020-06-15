@@ -12,6 +12,7 @@ module.exports = {
         contentPath: 'notes',
         basePath: '/',
         showThemeInfo: false,
+        gitRepoContentPath: 'https://github.com/IronicBadger/openshift-compendium',
         showDescriptionInSidebar: true,
       },
     },
