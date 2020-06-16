@@ -27,4 +27,6 @@ oc create -f deploy/redis-deployment.yaml
 oc create -f deploy/redis-service.yaml
 
 oc create route edge --service=kube-ops-view
+
+oc get route -o custom-columns="kube-ops-view URL:.spec.host"
 ```
