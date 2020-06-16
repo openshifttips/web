@@ -12,3 +12,15 @@ weight: 11
 ```
 oc get csr -o name | xargs oc adm certificate approve
 ```
+
+# Verify the API certificates
+
+```
+echo | openssl s_client -connect api.ocp4.example.com:6443 | openssl x509 -noout -text
+```
+
+# Extract etcd CA
+
+```
+oc get secrets -n openshift-config etcd-signer -o "jsonpath={.data['tls\.crt']}" |  base64 -d | openssl x509 -text
+```
