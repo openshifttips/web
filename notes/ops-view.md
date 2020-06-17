@@ -9,6 +9,8 @@ link: https://github.com/hjacobs/kube-ops-view
 
 Want to know how full your cluster is? Or get a vague idea of what is running where? `kube-ops-view` is a simple dashbaord that lets you visualize this.
 
+![ops-view](images/kube-ops-view.png)
+
 ```bash
 git clone https://github.com/hjacobs/kube-ops-view.git
 cd kube-ops-view/
