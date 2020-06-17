@@ -4,7 +4,7 @@ tags:
   - Openshift 4
   - Admin Tasks
   - CSRs
-#emoji: 🎓
+emoji: 🎓
 link: https://google.com
 ---
 

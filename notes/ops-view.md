@@ -3,7 +3,7 @@ title: How full is my cluster?
 tags:
   - Openshift 4
   - Capacity
-#emoji: ⌨️
+emoji: ⌨️
 link: https://github.com/hjacobs/kube-ops-view
 ---
 

@@ -3,7 +3,7 @@ title: Count pods by node
 tags:
   - Openshift 4
   - Capacity
-#emoji: 🔢
+emoji: 🔢
 ---
 
 Count running pods:

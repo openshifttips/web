@@ -3,7 +3,7 @@ title: Debug node
 tags:
   - Openshift 4
   - Troubleshooting
-#emoji: 🧰
+emoji: 🧰
 ---
 
 For RHCOS systems, it is not recommended to use SSH to directly access the nodes.  Instead, `oc debug node` should be run.  Here are some examples:

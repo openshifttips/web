@@ -4,7 +4,7 @@ tags:
   - Skopeo
   - Image
 link: https://github.com/containers/image/pull/400
-#emoji: 🖼️
+emoji: 🖼️
 ---
 
 In order to support multi-architecture images going forward, container tools (i.e. Docker, podman, crio, etc...) have been updated to read from manifest lists.  To determine if an image is a multi-architecture manifest list, run the following command (substitute the image with your own):

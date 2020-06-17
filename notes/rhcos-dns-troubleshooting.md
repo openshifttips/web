@@ -4,7 +4,7 @@ tags:
   - Openshift 4
   - DNS
   - Troubleshooting
-#emoji: 🧹
+emoji: 🧹
 link: https://access.redhat.com/solutions/3804501
 ---
 

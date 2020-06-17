@@ -4,7 +4,7 @@ tags:
   - Openshift 4
   - Blog Posts
   - VMWare
-#emoji: ⌨️
+emoji: ⌨️
 link: https://www.openshift.com/blog/
 ---
 

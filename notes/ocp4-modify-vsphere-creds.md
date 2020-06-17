@@ -3,7 +3,7 @@ title: Modify vSphere Credentials
 tags:
   - Openshift 4
   - VMWare
-#emoji: 💾
+emoji: 💾
 link: https://access.redhat.com/solutions/4618011
 ---
 
