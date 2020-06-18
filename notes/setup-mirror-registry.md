@@ -5,7 +5,7 @@ tags:
   - Disconnected
   - Registry
   - Upgrade
-#emoji: 🔌
+emoji: 🔌
 ---
 
 Commands to mirror registry and upgrade a disconnected cluster.
