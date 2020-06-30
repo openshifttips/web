@@ -22,6 +22,16 @@ etcdctl check perf --load="l"
 etcdctl check perf --load="xl"
 ```
 
+> OCP 4.4 and up. Run commands from a master node.
+
+```bash
+id=$(sudo crictl ps --name etcdctl | awk 'FNR==2{ print $1}') && sudo crictl exec -it $id /bin/bash
+
+etcdctl check perf --load="m"
+etcdctl check perf --load="l"
+etcdctl check perf --load="xl"
+```
+
 Example output:
 
 ~~~
