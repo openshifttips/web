@@ -1,14 +1,15 @@
 ---
-title: Disconnected Cluster Mirror Registry and Upgrade
+title: DC Cluster Mirror and Upgrade
 tags:
   - Openshift 4
   - Disconnected
   - Registry
   - Upgrade
 emoji: 🔌
+link: https://docs.openshift.com/container-platform/latest/installing/install_config/installing-restricted-networks-preparations.html#installation-mirror-repository_installing-restricted-networks-preparations
 ---
 
-Commands to mirror registry a disconnected cluster:
+Commands to mirror registry for a disconnected cluster:
 
 ```bash
 export OCP_RELEASE=4.4.3-x86_64          ### replace with your minor version
