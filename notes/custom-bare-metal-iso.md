@@ -1,3 +1,16 @@
+---
+
+title: Creating a Custom ISO for Bare Metal Installations
+
+tags: 
+ - Openshift 4
+ - Installation
+
+emoji: 💿
+
+---
+
+
 # Custom ISO for Quick Bare Metal Installations
 
 1. Obtain the bare metal installation ISO from mirror.openshift.com
