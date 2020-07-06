@@ -11,7 +11,7 @@ How to modify vsphere credentials in Openshift 4 after the cluster has been crea
 
 > You will need `cluster-admin` to edit these credentials
 
-* `oc project kube-admin`
+* `oc project kube-system`
 * Execute `oc edit vsphere-creds`
 
 These credentials are base64 encoded. Here's a quick reminder of how to encode and decode base64.
