@@ -6984,10 +6984,10 @@ gatsby-telemetry@^1.3.18:
     node-fetch "2.6.0"
     uuid "3.4.0"
 
-gatsby-theme-code-notes@1.12.0:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-code-notes/-/gatsby-theme-code-notes-1.12.0.tgz#d259ed99a5f2878d9882312e1f61678f6379a232"
-  integrity sha512-Fnu2Jf/A6Cq/eZLIo4d1mQCxQs67SrumsdREKsSjqOMbZavGI9wgiw+dd75RY2jlOhB6SURmMedCLWyN2PQOfw==
+gatsby-theme-code-notes@1.13.2:
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-code-notes/-/gatsby-theme-code-notes-1.13.2.tgz#1820b81bbedad2a5971dcd131659114f2912e25a"
+  integrity sha512-uby04QB5J/qh/n1TWvG7muMok8uO1MDe1zg5Tttf2ncp7nM2GmQ1b7XF09bFTSbJ0GJBqUerxAgK5ye1Fg9Aag==
   dependencies:
     "@alexcarpenter/slugify" "^1.0.6"
     "@mdx-js/mdx" "^1.6.5"
