@@ -45,3 +45,19 @@ A few points to note when submitting PRs:
 - Tags are case sensitive
 - Links and emoji are optional
 - Code blocks support multilanguage syntax highlighting with [Github flavored markdown syntax](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax)
+
+Each note should contain some front matter. This allows the theme to parse and organize the contents more easily. For example:
+
+```
+---
+title: Display etcd member table
+tags:
+  - Openshift 4
+  - Admin Tasks
+  - etcd
+emoji: 🧹
+link: https://access.redhat.com/solutions/4985441
+---
+```
+
+Links and emoji are optional.
