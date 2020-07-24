@@ -1,8 +1,8 @@
 ---
 title: Which users have specific access
 tags:
-  - auth
-  - troubleshooting
+  - Auth
+  - Troubleshooting
 emoji: 💪
 link: https://docs.openshift.com/container-platform/4.5/authentication/using-rbac.html
 ---
