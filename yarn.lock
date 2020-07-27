@@ -6984,10 +6984,10 @@ gatsby-telemetry@^1.3.18:
     node-fetch "2.6.0"
     uuid "3.4.0"
 
-gatsby-theme-code-notes@1.13.2:
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-code-notes/-/gatsby-theme-code-notes-1.13.2.tgz#1820b81bbedad2a5971dcd131659114f2912e25a"
-  integrity sha512-uby04QB5J/qh/n1TWvG7muMok8uO1MDe1zg5Tttf2ncp7nM2GmQ1b7XF09bFTSbJ0GJBqUerxAgK5ye1Fg9Aag==
+gatsby-theme-code-notes@1.14.1:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-code-notes/-/gatsby-theme-code-notes-1.14.1.tgz#3063ff2ecd373ac7d1302f677019fae09c9c3804"
+  integrity sha512-lHjinp6WurFzifwfMKvsMEK9omdFCyFtX56SPLPbu38JS9OiAwOxdEJq3W4UYRv0+Nurlg+D7Cv/GKKwKLxhdA==
   dependencies:
     "@alexcarpenter/slugify" "^1.0.6"
     "@mdx-js/mdx" "^1.6.5"
@@ -7015,6 +7015,7 @@ gatsby-theme-code-notes@1.13.2:
     querystring "^0.2.0"
     react-helmet "^6.1.0"
     react-icons "^3.9.0"
+    react-rough-notation "^0.1.1"
     react-use-flexsearch "^0.1.1"
     remark-emoji "^2.0.2"
     remark-github "^9.0.1"
@@ -11930,6 +11931,13 @@ react-refresh@^0.7.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.7.2.tgz#f30978d21eb8cac6e2f2fde056a7d04f6844dd50"
   integrity sha512-u5l7fhAJXecWUJzVxzMRU2Zvw8m4QmDNHlTrT5uo3KBlYBhmChd7syAakBoay1yIiVhx/8Fi7a6v6kQZfsw81Q==
 
+react-rough-notation@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-rough-notation/-/react-rough-notation-0.1.1.tgz#bf2022f580655e079552f414f8403a60c3dd708c"
+  integrity sha512-Otu5j+anE9R90IaS4UoloPIy9841V51u0CMI+6xG5yZEWYmPHYHVPS5B50iFHIuOPgPDUqA2fVKNvglb4WKLHw==
+  dependencies:
+    rough-notation "^0.4.0"
+
 react-side-effect@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.0.tgz#1ce4a8b4445168c487ed24dab886421f74d380d3"
@@ -12568,6 +12576,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+rough-notation@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/rough-notation/-/rough-notation-0.4.0.tgz#6f97324cb50fc91ec8064219253aa2528a69210f"
+  integrity sha512-hDgn9qMIxWnfY+WWjt30aLMtDHR13H8r/NI3EQNdJiEFAzpklH5nKg4eH/thpxCWTYzyg8ueMsKIfz9MzOBQ4Q==
 
 run-async@^2.2.0, run-async@^2.4.0:
   version "2.4.1"
