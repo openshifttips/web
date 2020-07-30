@@ -3,6 +3,7 @@ title: RHCOS DNS Troubleshooting
 tags:
   - Openshift 4
   - DNS
+  - RHCOS
   - Troubleshooting
 emoji: 🧹
 link: https://access.redhat.com/solutions/3804501

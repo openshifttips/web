@@ -2,6 +2,7 @@
 title: Install package to RHCOS for debugging
 tags:
   - Openshift 4
+  - RHCOS
   - Troubleshooting
 emoji: 🧰
 ---
