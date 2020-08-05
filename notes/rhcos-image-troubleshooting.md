@@ -8,7 +8,7 @@ tags:
 emoji: 🧰
 ---
 
-During an upgrade, due to issues, the wrong RHCOS image may be booted to.  When the user performs an `oc describe node`, the error shown is `unexpected on-disk state validating against rendered-worker`.  While the following steps aren't intended to determine root cause of the issue, they may be used as a quick fix to pivot and reboot to the previous good known RHCOS image.
+During an upgrade, due to issues, the wrong RHCOS image may be booted to.  When the user performs an `oc describe node`, the error shown is `unexpected on-disk state validating against rendered-worker`.  While the following steps aren't intended to determine root cause of the issue, they may be used as a quick fix to recover and successfully upgrade.
 
 To confirm the issue:
 ```oc
@@ -21,9 +21,15 @@ I0730 16:09:15.106789    2499 daemon.go:771] Current config: rendered-worker-f46
 I0730 16:09:15.106812    2499 daemon.go:772] Desired config: rendered-worker-e860d220c04fcc116d948ba0cbf00936
 ```
 
-To perform an ostree rollback (pivot and reboot) to a previous good known RHCOS image:
+Using the example above, to force a node to update to the desired rendered worker config `rendered-worker-e860d220c04fcc116d948ba0cbf00936`:
 ```oc
-# oc debug node/<node name>
+# oc debug node $NODE -- chroot /host touch /run/machine-config-daemon-force
+# oc patch node $NODE -p '{"metadata": {"annotations": {"machineconfiguration.openshift.io/currentConfig": "rendered-worker-e860d220c04fcc116d948ba0cbf00936"}}}'
+```
+
+If the above does not work to roll forward, one can attempt to perform an ostree rollback (pivot and reboot) to a previous good known RHCOS image:
+```oc
+# oc debug node $NODE
 sh-4.2# chroot /host
 sh-4.4# rpm-ostree status
 State: idle
