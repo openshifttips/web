@@ -18,6 +18,5 @@ $ oc logs pod-name -c container-name
 Using the example below you can generate a new pod based on your deployment with an interactive shell running as root instead of the default entry point. This will allow you to verify environmental variables, access to network services, and permissions inside of the pod. 
 
 ```bash
-#To display all journal logs of a node:
 $ oc debug deployment/deployment-name --as-root
 ```
