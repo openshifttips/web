@@ -1,5 +1,5 @@
 ---
-title: Secret management
+title: Secret management tips
 tags:
   - Openshift 4
   - Admin Tasks
