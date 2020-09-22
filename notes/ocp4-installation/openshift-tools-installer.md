@@ -3,6 +3,7 @@ title: Easily manage Openshift tool versions
 tags:
   - Openshift 4
   - Admin Tasks
+  - Installation
   - Tools
 emoji: 🎓
 link: https://github.com/cptmorgan-rh/install-oc-tools

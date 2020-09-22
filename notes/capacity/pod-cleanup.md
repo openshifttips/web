@@ -4,6 +4,7 @@ tags:
   - Openshift 4
   - Admin Tasks
   - Cleanup
+  - Capacity
 emoji: 🧹
 link: https://docs.openshift.com/
 ---
