@@ -4,7 +4,7 @@ tags:
   - Openshift 4
   - Capacity
   - Images
-emoji: 🎓
+emoji: 🎞️
 link: https://docs.openshift.com/container-platform
 ---
 
