@@ -2,7 +2,7 @@
 title: Determine if an image is multi-architecture
 tags:
   - Skopeo
-  - Image
+  - Images
 link: https://github.com/containers/image/pull/400
 emoji: 🖼️
 ---

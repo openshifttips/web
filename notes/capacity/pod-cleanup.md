@@ -9,8 +9,10 @@ emoji: 🧹
 link: https://docs.openshift.com/
 ---
 
-Cleanup and remove old pods which are in `completed` state.
+## Delete 'Completed' pods
 
-```bash
-oc get pods --all-namespaces | awk '{if ($4 == "Completed") system ("oc delete pod " $2 " -n " $1 )}'
+During the installation process, a few temporary pods are created. Keeping those pds as 'Completed' doesn't harm nor waste resources but if you want to delete them to have only 'running' pods in your environment you can use the following command:
+
+```
+oc delete pod --field-selector=status.phase==Succeeded --all-namespaces
 ```
