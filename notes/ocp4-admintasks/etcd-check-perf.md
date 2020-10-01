@@ -10,22 +10,26 @@ link: https://access.redhat.com/solutions/4985441
 
 This command is useful if you need to check the performance of etcd.
 
-> OCP 4.1 - 4.3. Run commands from a master node.
+## OCP 4.4+
+
+> Run commands from a master node.
 
 ```bash
-id=$(sudo crictl ps --name etcd-member | awk 'FNR==2{ print $1}') && sudo crictl exec -it $id /bin/bash
-
-export ETCDCTL_API=3 ETCDCTL_CACERT=/etc/ssl/etcd/ca.crt ETCDCTL_CERT=$(find /etc/ssl/ -name *peer*crt) ETCDCTL_KEY=$(find /etc/ssl/ -name *peer*key)
+id=$(sudo crictl ps --name etcdctl | awk 'FNR==2{ print $1}') && sudo crictl exec -it $id /bin/bash
 
 etcdctl check perf --load="m"
 etcdctl check perf --load="l"
 etcdctl check perf --load="xl"
 ```
 
-> OCP 4.4 and up. Run commands from a master node.
+## OCP 4.1-4.3
+
+> Run commands from a master node.
 
 ```bash
-id=$(sudo crictl ps --name etcdctl | awk 'FNR==2{ print $1}') && sudo crictl exec -it $id /bin/bash
+id=$(sudo crictl ps --name etcd-member | awk 'FNR==2{ print $1}') && sudo crictl exec -it $id /bin/bash
+
+export ETCDCTL_API=3 ETCDCTL_CACERT=/etc/ssl/etcd/ca.crt ETCDCTL_CERT=$(find /etc/ssl/ -name *peer*crt) ETCDCTL_KEY=$(find /etc/ssl/ -name *peer*key)
 
 etcdctl check perf --load="m"
 etcdctl check perf --load="l"
