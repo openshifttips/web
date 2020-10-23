@@ -26,6 +26,14 @@ oc scale --replicas=0 deployment/victoria
 ```
 oc edit deployment/victoria
 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "7"
+    kubectl.kubernetes.io/last-applied-configuration: |
+...
+
     spec:
       containers:
       - args:
@@ -58,6 +66,13 @@ oc edit deployment/victoria
 
 ```
 oc edit pv/pv-victoria-data
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+...
 
 spec:
   accessModes:
