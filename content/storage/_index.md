@@ -13,7 +13,7 @@ weight: 26
 oc get sc -o jsonpath='{.items[?(@.metadata.annotations.storageclass\.kubernetes\.io/is-default-class=="true")].metadata.name}'
 ```
 
-# Unbound and existing pvc from one pod to be used by another pod and retaining data
+# Unbound an existing pvc from one pod to be used by another pod and retaining data
 
 1. Scale pods to 0
 
