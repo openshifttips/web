@@ -33,7 +33,6 @@ metadata:
     deployment.kubernetes.io/revision: "7"
     kubectl.kubernetes.io/last-applied-configuration: |
 ...
-
     spec:
       containers:
       - args:
@@ -73,7 +72,6 @@ metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: |
 ...
-
 spec:
   accessModes:
   - ReadWriteMany
