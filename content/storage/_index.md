@@ -21,7 +21,7 @@ oc get sc -o jsonpath='{.items[?(@.metadata.annotations.storageclass\.kubernetes
 oc scale --replicas=0 deployment/victoria
 ```
 
-2. Edit deployment and delete references to existing pvc
+2. Edit deployment and delete volumes that make a reference to pvc
 
 ```
 oc edit deployment/victoria
@@ -52,8 +52,8 @@ oc edit deployment/victoria
       - name: victoria-data
         persistentVolumeClaim:
           claimName: pvc-victoria-data2
-
 ```
+
 3. Remove claimRef to pvc on pv and make sure persistentVolumeReclaimPolicy: Retain
 
 ```
@@ -88,6 +88,4 @@ oc get pv
 NAME               CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
 pv-victoria-data   10Gi       RWX            Retain           Available  
 ```
-
-
-5. At this point PV is ready to be used by another pod
+At this point PV is ready to be used by another pod
