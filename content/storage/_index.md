@@ -15,7 +15,7 @@ oc get sc -o jsonpath='{.items[?(@.metadata.annotations.storageclass\.kubernetes
 
 # Unbound and existing pvc from one pod to be used by another pod and retaining data
 
-1.Scale pods to 0
+1. Scale pods to 0
 
 ```
 oc scale --replicas=0 deployment/victoria
