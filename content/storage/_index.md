@@ -13,15 +13,17 @@ weight: 26
 oc get sc -o jsonpath='{.items[?(@.metadata.annotations.storageclass\.kubernetes\.io/is-default-class=="true")].metadata.name}'
 ```
 
-# Unbound and existing pvc from one pod to be used by another pod and retaining data on pv
+# Unbound and existing pvc from one pod to be used by another pod and retaining data
+
+1.Scale pods to 0
 
 ```
-1 - Scale pods to 0
-
 oc scale --replicas=0 deployment/victoria
+```
 
-2 - Edit deployment and delete references to existing pvc
+2. Edit deployment and delete references to existing pvc
 
+```
 oc edit deployment/victoria
 
     spec:
@@ -51,11 +53,10 @@ oc edit deployment/victoria
         persistentVolumeClaim:
           claimName: pvc-victoria-data2
 
+```
+3. Remove claimRef to pvc on pv and make sure persistentVolumeReclaimPolicy: Retain
 
-oc edit deployment
-
-3 - Remove claimRef to pvc on pv and make sure persistentVolumeReclaimPolicy: Retain
-
+```
 oc edit pv/pv-victoria-data
 
 spec:
@@ -77,16 +78,16 @@ spec:
   volumeMode: Filesystem
 status:
   phase: Bound
+```
 
-4 - Make sure PV is available
+4. Make sure PV is available
 
+```
 oc get pv
 
 NAME               CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
 pv-victoria-data   10Gi       RWX            Retain           Available  
-
-
-
-5 - At this point PV is ready to be used by another pod
-
 ```
+
+
+5. At this point PV is ready to be used by another pod
