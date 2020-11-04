@@ -71,6 +71,12 @@ You just need your pull secret file and:
 oc adm release extract --registry-config=./pull_secret.txt --from=quay.io/openshift-release-dev/ocp-release:4.1.15 --to=/tmp/mystuff
 ```
 
+In case you want the payloads from the current version running in the cluster:
+
+```
+oc adm release extract --registry-config=./pull-secret.txt --from=$(oc get clusterversion version -o jsonpath='{.status.desired.image}') --to=/tmp/mystuff
+```
+
 You can extract individual files such as the `oc` or the installer with the `--command` flag
 
 # Dump OpenShift release information
