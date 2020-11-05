@@ -274,3 +274,27 @@ If you want to merge multiple kubeconfig files you can run the following command
 oc get event --sort-by=.metadata.creationTimestamp
 ```
 
+# Avoid the managed fields output
+
+For instance, to 'export' the restricted SCC without the metadata.managedFields:
+
+```
+oc patch scc restricted  --type=json -p '[{"op": "remove", "path": "/metadata/managedFields"}]' -o yaml --dry-run=client
+```
+
+This won't affect the object in the cluster as it is done at client side with
+the `--dry-run=client` flag.
+
+Via https://github.com/kubernetes/kubernetes/issues/90066#issuecomment-716206402
+
+# Avoid the managed fields and other metadata output
+
+For instance, to 'export' the restricted SCC without the metadata.managedFields,
+creationTimestamp, generation, etc.:
+
+```
+oc patch scc restricted  --type=json -p '[{"op": "remove", "path": "/metadata/managedFields"},{"op": "remove", "path": "/metadata/creationTimestamp"},{"op": "remove", "path": "/metadata/generation"},{"op": "remove", "path": "/metadata/resourceVersion"},{"op": "remove", "path": "/metadata/selfLink"},{"op": "remove", "path": "/metadata/uid"}]' -o yaml --dry-run=client
+```
+
+This won't affect the object in the cluster as it is done at client side with
+the `--dry-run=client` flag.
