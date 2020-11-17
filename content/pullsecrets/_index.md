@@ -22,3 +22,9 @@ oc edit secret -n openshift-config pull-secret
 NOTE: That secret is translated by the machine-config operator into the
 `/var/lib/kubelet/config.json` file so in order to update it is required for the
 hosts to be rebooted (which is done automatically by the mc operator)
+
+# Opt out telemetry
+
+```
+oc -n openshift-config create secret generic pull-secret --from-file=.dockerconfigjson=<(oc extract secret/pull-secret -n openshift-config --to=- | jq -M 'del(.auths["cloud.openshift.com"])') --dry-run=client -o yaml | oc -n openshift-config apply --filename=-
+```
