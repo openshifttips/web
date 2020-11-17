@@ -4,5 +4,44 @@
   "maxRequests": 5,
   "ignoreDigits": true,
   "lang": "en",
+<<<<<<< HEAD
   "dictionary": []
+=======
+  "dictionary": [
+    "emoji",
+    "CoreOS",
+    "RHCOS",
+    "CRI-O",
+    "NTP",
+    "systemd",
+    "chronyd",
+    "sysctl",
+    "NetworkManager",
+    "OCP",
+    "OpenShift",
+    "KCS",
+    "SELinux",
+    "SDN",
+    "OAuth",
+    "etcd",
+    "ostree",
+    "MTU",
+    "ConfigMap",
+    "UPI",
+    "IPI",
+    "kubectl",
+    "Kubernetes",
+    "VMWare",
+    "oc",
+    "CSR",
+    "ControlPlane",
+    "ElasticSearch",
+    "Terraform",
+    "HAProxy",
+    "TLS",
+    "CA",
+    "kubeconfig",
+    "workaround"
+  ]
+>>>>>>> e433d39 (Merge openshift.tips and openshift.cloud.ktz + some magic)
 }

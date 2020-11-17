@@ -18,6 +18,8 @@
   "dependencies": {
     "gatsby": "^2.24.63",
     "gatsby-theme-code-notes": "1.15.0",
+    "gatsby-plugin-sitemap": "^2.6.0",
+    "gatsby-theme-code-notes": "1.15.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

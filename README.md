@@ -1,42 +1,10 @@
-# [openshift.tips](https://openshift.tips)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e9d32213-2089-4328-b53e-bb6b15efd960/deploy-status)](https://app.netlify.com/sites/openshifttips/deploys)
-
-This site pretends to compile a list of OpenShift 4 tips, mainly one liners.
-
-# Contact
-
-The main author of this site is [Eduardo Minguez](https://eduardominguez.es) but
-collaborations are appreciated :)
-
-Feel free to contact me at <hello@openshift.tips> or add a new issue to the
-[repo](https://github.com/openshifttips/web/issues/new)
-
-# Howto
-
-This site is based on:
-
-- [Hugo](https://gohugo.io) as the static site framework.
-- [Techdoc Hugo's theme](https://themes.gohugo.io/hugo-theme-techdoc/)
-- [GitHub](https://github.com/openshifttips/web) to host the git repository.
-- [Netlify](https://www.netlify.com) to run the builds and serve the content.
-- [Let's Encrypt](https://letsencrypt.org) (automated via Netlify) for the site certificates.
-
-Also, we use [ForwardEmail.net](https://forwardemail.net/).
-
-Everything is free (as in beer) so anyone can build the same stuff at 0 cost :)
-Also, some of the tools used (such as Hugo and ForwardEmail) are open source as
-well \o/
-
-# Other
-
-[I prefer tabs vs spaces.](https://www.reddit.com/r/javascript/comments/c8drjo/nobody_talks_about_the_real_reason_to_use_tabs/)
-=======
 # Openshift Compendium
+=======
+# OpenShift Tips
 
-![Gatsby Publish](https://github.com/IronicBadger/openshift-compendium/workflows/Gatsby%20Publish/badge.svg)
+This site pretends to compile a list of OpenShift 4 tips, mainly one liners as well as handy commands, snippets and other tips + tricks for working with OpenShift Container Platform.
 
-This repo contains handy commands, snippets and other tips + tricks for working with OpenShift Container Platform.
+Check the site at <https://openshift.tips>
 
 To contribute please open a PR by contributing a `.md` file (or several) to the `notes/` folder. Please keep PRs scoped by topic. For example, if adding a few commands and a few example snippets, open two PRs.
 
@@ -52,18 +20,27 @@ A few points to note when submitting PRs:
 
 ## Front Matter
 
-Each note should contain some front matter. This allows the theme to parse and organize the contents more easily. 
+Each note should contain some front matter. This allows the theme to parse and organize the contents more easily.
 
 For example:
 
-```
+```markdown
 ---
 title: Display etcd member table
 tags:
-  - Openshift 4
   - Admin Tasks
   - etcd
 emoji: 🧹
 link: https://access.redhat.com/solutions/4985441
 ---
 ```
+
+# Contact
+
+The main author of this site is [Eduardo Minguez](https://eduardominguez.es) but
+collaborations are appreciated :)
+
+Check all the other [Contributors](https://github.com/openshifttips/web/graphs/contributors)
+
+Feel free to contact me at <hello@openshift.tips> or add a new issue to the
+[repo](https://github.com/openshifttips/web/issues/new)
