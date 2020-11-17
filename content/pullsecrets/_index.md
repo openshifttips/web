@@ -28,3 +28,5 @@ hosts to be rebooted (which is done automatically by the mc operator)
 ```
 oc -n openshift-config create secret generic pull-secret --from-file=.dockerconfigjson=<(oc extract secret/pull-secret -n openshift-config --to=- | jq -M 'del(.auths["cloud.openshift.com"])') --dry-run=client -o yaml | oc -n openshift-config apply --filename=-
 ```
+
+NOTE: This will trigger a reboot in all the nodes.
