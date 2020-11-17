@@ -63,6 +63,12 @@ spec:
 EOF
 ```
 
+# Apply all manifests inside a folder
+
+```
+oc apply -R -f myfolder/
+```
+
 # Extract the OpenShift payloads (aka files, assets, etc.)
 
 You just need your pull secret file and:
