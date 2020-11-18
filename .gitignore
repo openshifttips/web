@@ -1,1 +1,5 @@
+.cache
+public
+node_modules
 public/*
+.history/
