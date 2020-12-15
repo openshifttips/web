@@ -58,3 +58,18 @@ Output is something similar to:
 ]
 
 ```
+
+# Switch OpenShift Channel and trigger a refresh
+
+For instance, switching from `stable-4.6` to `fast-4.6`:
+
+```
+oc patch clusterversion version --type="merge" -p '{"spec":{"channel":"fast-4.6"}}'
+oc delete po -n openshift-cluster-version -l k8s-app=cluster-version-operator
+```
+
+Then you can update to latest as:
+
+```
+oc adm upgrade --to-latest
+```
