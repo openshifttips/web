@@ -120,5 +120,4 @@ spec:
   type: ClusterIP
 ```
 
-For more information you can check the upstream documentation: https://kubernetes.io/docs/concepts/services-networking/dual-stack/#forum-app-services
-
+For more information about IPv4/IPv6 dual stack you can check the [upstream documentation](https://kubernetes.io/docs/concepts/services-networking/dual-stack/)
