@@ -91,7 +91,7 @@ spec:
   sessionAffinity: None
   type: ClusterIP
 ```
-For the case of using DualStack:
+In order to use DualStack, the `spec.ipFamilyPolicy` setting needs to be configured whether to `PreferDualStack` or `RequireDualStack` as:
 ```
 apiVersion: v1
 kind: Service
