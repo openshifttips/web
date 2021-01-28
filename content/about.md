@@ -25,6 +25,7 @@ Feel free to contact me at <hello@openshift.tips> or add a new issue to the
 * [josgonza-rh](https://github.com/openshifttips/web/commits?author=josgonza-rh)
 * [aizuddin85](https://github.com/openshifttips/web/commits?author=aizuddin85)
 * [acomabon](https://github.com/openshifttips/web/commits?author=acomabon)
+* [ptrnull](https://github.com/openshifttips/web/commits?author=ptrnull)
 
 # Howto
 
