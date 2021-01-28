@@ -45,7 +45,7 @@ platform:
 
 Pay special attention to the order of the networks, first IPv4, second IPv6, at the moment that is important and mandatory.
 
-The _FeatureGate_ also needs to be enabled:
+The `IPv6DualStackNoUpgrade` _FeatureGate_ also needs to be enabled by adding the following to the list of manifests:
 
 ```
 apiVersion: config.openshift.io/v1
