@@ -59,7 +59,9 @@ spec:
 
 **Setting up IPv4, IPv6 or DualStack in a service**
 
-After the cluster is up and running you can test the IPv6 configuration with a Service. By default the Services are created IPv4 only, if you want to create a Service with IPv6 you have to pay attention to the following _ipFamilies_ and _ipFamilyPolicy_ sections:
+After the cluster is up and running you can test the IPv6 configuration with a Service. By default the Services are created IPv4 only, if you want to create a Service with IPv6 you have to modify the `spec.ipFamilyPolicy` setting.
+
+The default setting is to expose only as a `SingleStack` cluster IP for the Service, using the first configured service cluster IP range (IPv4 by default):
 
 ```
 apiVersion: v1
