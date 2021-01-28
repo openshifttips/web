@@ -13,7 +13,7 @@ At the time of writting this document the priority IP protocol inside and OpenSh
 
 **Installation**
 
-The install-config.yml needs to include both network configurations, IPv4 and IPv6, an example:
+The `install-config.yaml` file needs to include both network configurations, IPv4 and IPv6, an example:
 
 
 ```
