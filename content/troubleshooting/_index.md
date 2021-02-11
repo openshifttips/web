@@ -34,7 +34,7 @@ oc get pods -A -o wide | grep -v -E 'Completed|Running'
 Combining the previous two tips and adding some more data:
 
 ```
-watch -n5 "oc get nodes; oc get pods -A -o wide | grep -v -E 'Completed|Running'; oc get clusteroperators; oc get clusterversion; oc get machines -A; oc get machineconfigpool"
+watch -n 30 "oc get nodes; oc get pods -A -o wide | grep -v -E 'Completed|Running'; oc get clusteroperators | grep -v 'True[[:space:]]\+False[[:space:]]\+False'; oc get clusterversion; oc get machines -A; oc get machineconfigpool"
 ```
 
 # Get node logs
