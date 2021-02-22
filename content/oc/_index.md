@@ -133,8 +133,29 @@ oc adm release info --image-for=<component> quay.io/openshift-release-dev/ocp-re
 
 # Get commit URLs for all the release components
 
-
 So, you can go to https://github.com/openshift/multus-cni/commits/0ad77469f3dbe7fa0a9cf5df5cd2a7fd3f099d2a to see the actual code.
+
+# Get the list of images included in a release
+
+```
+RELEASE="4.6.16"
+FROM=$(curl -s https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/${RELEASE}/release.txt | awk '/Pull From:/ { print $3 }')
+oc adm release info ${RELEASE} | awk '/NAME/,0 { getline; print $1 }'
+```
+
+# Get a diff from an image between different OpenShift versions
+
+```
+IMAGE="cli"
+FROMVER="4.6.1"
+TOVER="4.6.16"
+FROM=$(curl -s https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/${FROMVER}/release.txt | awk '/Pull From:/ { print $3 }')
+TO=$(curl -s https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/${TOVER}/release.txt | awk '/Pull From:/ { print $3 }')
+FROMCOMMIT=$(oc adm release info --commits ${FROM} | grep "  ${IMAGE} " | awk "{ print \$3 }")
+TOCOMMIT=$(oc adm release info --commits ${TO} | grep "  ${IMAGE} " | awk "{ print \$3 }")
+REPOSITORY=$(oc adm release info --commits ${TO} | grep "  ${IMAGE} " | awk "{ print \$2 }")
+echo "${REPOSITORY}/compare/${FROMCOMMIT:0:6}..${TOCOMMIT:0:6}#files_bucket"
+```
 
 # View different channels and releases information
 
