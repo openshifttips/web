@@ -325,3 +325,9 @@ oc patch scc restricted  --type=json -p '[{"op": "remove", "path": "/metadata/ma
 
 This won't affect the object in the cluster as it is done at client side with
 the `--dry-run=client` flag.
+
+# Get nodes ready without grep or jq
+
+```
+oc get nodes -o go-template='{{range .items}}{{$node := .}}{{range .status.conditions}}{{if eq .type "Ready"}}{{if eq .status "True"}}node/{{$node.metadata.name}}{{"\n"}}{{end}}{{end}}{{end}}{{end}}'
+```
