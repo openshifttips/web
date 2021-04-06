@@ -4,7 +4,7 @@ date: 2020-04-21T15:22:20+02:00
 lastmod: 2020-04-21T15:22:20+02:00
 publishdate: 2020-04-21T15:30:20+02:00
 draft: false
-weight: 13
+weight: 14
 ---
 
 # Move from a three-node cluster to a regular 3 control-plane + workers
