@@ -189,3 +189,17 @@ sed -i -e 's/--v=3/--v=4/g' /etc/systemd/system/kubelet.service
 systemctl daemon-reload
 systemctl restart kubelet
 ```
+
+# Get MCP rendered ignition
+
+```
+curl -k -H "Accept: application/vnd.coreos.ignition+json; version=3.1.0" https://<api_ip>:22623/config/<poolname>
+```
+for example:
+```
+curl -k -H "Accept: application/vnd.coreos.ignition+json; version=3.1.0" https://<api_ip>:22623/config/master
+```
+or
+```
+curl -k -H "Accept: application/vnd.coreos.ignition+json; version=3.1.0" https://<api_ip>:22623/config/worker
+```
