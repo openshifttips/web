@@ -203,3 +203,19 @@ or
 ```
 curl -k -H "Accept: application/vnd.coreos.ignition+json; version=3.1.0" https://<api_ip>:22623/config/worker
 ```
+
+# Using netcat for file transfer from emergency shell
+Sometimes things go so badly that we end up with node in emergency shell. With this we can copy off journal (or any other relevant file) outside of that shell so we can attach it to a bug report or examine it with other tools.
+First off save the journal to a file:
+```
+journalctl > journal.log
+```
+On the receving end run:
+```
+nc -l -p 1234 > journal.log
+```
+And then on the emergency console:
+```
+nc -w 3 [destination] 1234 < journal.log
+```
+You'll end up with journal.log on the destination
