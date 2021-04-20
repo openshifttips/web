@@ -123,8 +123,7 @@ Kudos to [Juanlu](https://github.com/juanluisvaladas)
 
 # Modify kubelet log level
 
-The kubelet configuration is provided by the systemd unit file in `/etc/systemd/system/kubelet.service` which is created by the `01-worker-kubelet` (for workers) or `01-master-kubelet` machineconfig. In order to modify it, the best
-approach would be to modify the machineconfig with `oc edit machineconfig 01-worker-kubelet` and modify the `-v` parameter, but it will trigger a full reboot of the node. You can modify it manually for troubleshooting purposes as:
+The kubelet configuration is provided by the systemd unit file in `/etc/systemd/system/kubelet.service` which is created by the `01-worker-kubelet` (for workers) or `01-master-kubelet` machineconfig. In current OpenShift versions, that unit sets the `-v` parameter as per `KUBELET_LOG_LEVEL` environment variable, so customizing the log level is as simple as setting that variable through a drop-in for the `kubelet` systemd service unit, like this:
 
 * Connect to the node via `oc debug node`
 
@@ -134,61 +133,23 @@ oc debug node/<node>
 chroot /host
 ```
 
-* Verify the content of the file:
+* Create a systemd drop-in that sets `KUBELET_LOG_LEVEL` to the desired value (4 in our example)
 
 ```
-systemctl cat kubelet
-```
-
-```
-# /etc/systemd/system/kubelet.service
-[Unit]
-Description=Kubernetes Kubelet
-Wants=rpc-statd.service crio.service
-After=crio.service
-
+cat <<EOF > /etc/systemd/system/kubelet.service.d/40-logging.conf 
 [Service]
-Type=notify
-ExecStartPre=/bin/mkdir --parents /etc/kubernetes/manifests
-ExecStartPre=/bin/rm -f /var/lib/kubelet/cpu_manager_state
-EnvironmentFile=/etc/os-release
-EnvironmentFile=-/etc/kubernetes/kubelet-workaround
-EnvironmentFile=-/etc/kubernetes/kubelet-env
-
-ExecStart=/usr/bin/hyperkube \
-    kubelet \
-      --config=/etc/kubernetes/kubelet.conf \
-      --bootstrap-kubeconfig=/etc/kubernetes/kubeconfig \
-      --rotate-certificates \
-      --kubeconfig=/var/lib/kubelet/kubeconfig \
-      --container-runtime=remote \
-      --container-runtime-endpoint=/var/run/crio/crio.sock \
-      --allow-privileged \
-      --node-labels=node-role.kubernetes.io/master,node.openshift.io/os_id=${ID} \
-      --minimum-container-ttl-duration=6m0s \
-      --client-ca-file=/etc/kubernetes/ca.crt \
-      --cloud-provider= \
-      --volume-plugin-dir=/etc/kubernetes/kubelet-plugins/volume/exec \
-      \
-      --anonymous-auth=false \
-      --v=3 \
-
-Restart=always
-RestartSec=10
-
-[Install]
-WantedBy=multi-user.target
-
-# /etc/systemd/system/kubelet.service.d/10-default-env.conf
+Environment="KUBELET_LOG_LEVEL=4"
+EOF
 ```
 
-* Modify the `/etc/systemd/system/kubelet.service` definition and restart the service:
+* Reload systemd and restart the service:
 
 ```
-sed -i -e 's/--v=3/--v=4/g' /etc/systemd/system/kubelet.service
 systemctl daemon-reload
 systemctl restart kubelet
 ```
+
+Alternatively, this drop-in could be specified via machineconfig if the log levels of all the nodes need to be changed.
 
 # Get MCP rendered ignition
 
