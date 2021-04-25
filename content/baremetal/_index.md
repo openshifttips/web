@@ -18,7 +18,7 @@ To unblock the delete command, simply remove the object finalizer:
 
 # Reprovisioning a node
 
-1. for convinency `oc project openshift-machine-api`
+1. for conveniency `oc project openshift-machine-api`
 1. locate the correct secret, it'll have the same name as the bmh with a '-bmc-secret' postfix.
 1. save the secret - `oc get secret <bmh-name-bmc-secret> -o yaml > secret.yaml`
 1. save the bmh - `oc get bmh <bmh-name> -o yaml > bmh.yaml`
