@@ -4,7 +4,7 @@ date: 2021-02-11T14:00:00+02:00
 lastmod: 2021-02-11T14:00:00+02:00
 publishdate: 2021-02-11T14:00:00+02:00
 draft: false
-weight: 23
+weight: 24
 ---
 
 # SSH into nodes and perform a command as root using oc debug
