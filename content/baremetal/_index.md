@@ -58,7 +58,7 @@ sudo reboot
 ```
 
 Approve csr
-either use the procedure [here]({{< relref "/certificates/#sign-all-the-pending-csr">}} "here"), or look for the pending bootstrapper csr:
+either use the procedure [here](/certificates/#sign-all-the-pending-csr), or look for the pending bootstrapper csr:
 ```
 $ oc get csr
 NAME        AGE     REQUESTOR                                                                   CONDITION
