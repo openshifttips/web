@@ -60,6 +60,7 @@ You can also skip the interactivity confirmation using the -f parameter:
 
 ```
 sudo podman system prune -a -f
+
 Deleted Pods
 Deleted Containers
 Deleted Images
