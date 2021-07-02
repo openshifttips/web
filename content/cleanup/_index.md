@@ -38,7 +38,6 @@ spec:
     ImageGCHighThresholdPercent: 60
     ImageGCLowThresholdPercent: 70
 EOF
-oc create -f kubelet_custom.yaml
 ```
 
 WARNING: modifying the kubelet config will trigger an inmediate reboot of the affected nodes.
