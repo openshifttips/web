@@ -24,7 +24,8 @@ Kubernetes triggers the image garbage collector by default when the 85% (image-g
 
 ```
 oc label machineconfigpool worker custom-kubelet=enabled
-cat kubelet_custom.yaml
+
+cat <<EOF | oc apply -f -
 apiVersion: machineconfiguration.openshift.io/v1
 kind: KubeletConfig
 metadata:
