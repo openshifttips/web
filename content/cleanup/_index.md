@@ -47,7 +47,7 @@ WARNING: modifying the kubelet config will trigger an inmediate reboot of the af
 When running out of space under /var/lib/containers/storage you can run a full system prune using podman:
 
 ```
-$ sudo podman system prune -a
+sudo podman system prune -a
 WARNING! This will remove:
         - all stopped containers
         - all stopped pods
@@ -59,7 +59,7 @@ Are you sure you want to continue? [y/N]
 You can also skip the interactivity confirmation using the -f parameter:
 
 ```
-$ sudo podman system prune -a -f
+sudo podman system prune -a -f
 Deleted Pods
 Deleted Containers
 Deleted Images
