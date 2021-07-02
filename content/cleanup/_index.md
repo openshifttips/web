@@ -37,7 +37,7 @@ spec:
   kubeletConfig:
     ImageGCHighThresholdPercent: 60
     ImageGCLowThresholdPercent: 70
-    
+EOF
 oc create -f kubelet_custom.yaml
 ```
 
