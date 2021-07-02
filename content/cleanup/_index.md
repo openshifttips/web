@@ -48,6 +48,7 @@ When running out of space under /var/lib/containers/storage you can run a full s
 
 ```
 sudo podman system prune -a
+
 WARNING! This will remove:
         - all stopped containers
         - all stopped pods
