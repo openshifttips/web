@@ -26,7 +26,7 @@ oc label node worker2  node-role.kubernetes.io/infra=
 oc adm taint nodes -l node-role.kubernetes.io/infra infra=reserved:NoSchedule infra=reserved:NoExecute
 ```
 
-Patch the ingresscontroller to use the nodes with specific nodeselector
+Patch the `ingresscontroller` to use the nodes with specific `nodeselector` and a toleration for the previous `taint`:
 ```
 oc patch ingresscontroller/default -n  openshift-ingress-operator  --type=merge -p '{"spec":{"nodePlacement": {"nodeSelector": {"matchLabels": {"node-role.kubernetes.io/infra": ""}},"tolerations": [{"effect":"NoSchedule","key": "infra","value": "reserved"},{"effect":"NoExecute","key": "infra","value": "reserved"}]}}}'
 ```
