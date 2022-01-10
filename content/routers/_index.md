@@ -19,7 +19,7 @@ oc patch \
 
 # Moving routers to a specific (infra) node 
 
-Label the desired node with a particular label (infra)
+Label the desired nodes with a particular label (infra) and add a taint to those nodes:
 ```
 oc label node worker1  node-role.kubernetes.io/infra=
 oc label node worker2  node-role.kubernetes.io/infra=
