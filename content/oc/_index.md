@@ -331,3 +331,18 @@ the `--dry-run=client` flag.
 ```
 oc get nodes -o go-template='{{range .items}}{{$node := .}}{{range .status.conditions}}{{if eq .type "Ready"}}{{if eq .status "True"}}node/{{$node.metadata.name}}{{"\n"}}{{end}}{{end}}{{end}}{{end}}'
 ```
+
+# Wait for a CRD to be created
+
+```
+until oc wait crd/localvolumes.local.storage.openshift.io --for condition=established --timeout 10s >/dev/null 2>&1 ; do sleep 1 ; done
+```
+
+# Wait for a StorageClass to be created
+
+StorageClass object doesn't have a condition field, so instead, wait for the object to be created:
+
+```
+until oc get sc/local-sc >/dev/null 2>&1 ; do sleep 1 ; done
+```
+
