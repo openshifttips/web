@@ -21,7 +21,7 @@ In order to run the pods of a namespace on a specific node, we add can a node se
 For example, If a node has a label "node-role.kubernetes.io/worker="
 
 ```
-'oc annotate namespace NAMESPACE 'openshift.io/node-selector=node-role.kubernetes.io/worker='
+oc annotate namespace NAMESPACE 'openshift.io/node-selector=node-role.kubernetes.io/worker='
 ```
 
 # Add taints on a node
@@ -50,7 +50,7 @@ Above command prevents the scheduling of pods on the nodes using the key name "n
 # Add tolerations at namespace level
 
 ```
-oc annotate namespace test 'scheduler.alpha.kubernetes.io/defaultTolerations=[{"operator": "Exists", "effect": "NoSchedule", "key": "node-role.kubernetes.io/storage"}]'
+oc annotate namespace NAMESPACE 'scheduler.alpha.kubernetes.io/defaultTolerations=[{"operator": "Exists", "effect": "NoSchedule", "key": "node-role.kubernetes.io/storage"}]'
 
 ```
 
