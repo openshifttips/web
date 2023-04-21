@@ -51,7 +51,6 @@ Above command prevents the scheduling of pods on the nodes using the key name "n
 
 ```
 oc annotate namespace NAMESPACE 'scheduler.alpha.kubernetes.io/defaultTolerations=[{"operator": "Exists", "effect": "NoSchedule", "key": "node-role.kubernetes.io/storage"}]'
-
 ```
 
 In the above command, we added the toleration for the taint "NoSchedule" having key "node-role.kubernetes.io/storage" and the operator "Exists"
