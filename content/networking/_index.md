@@ -9,12 +9,11 @@ weight: 22
 
 # IPv4 IPv6 DualStack
 
-At the time of writting this document the priority IP protocol inside and OpenShift cluster is IPv4, that means that by default the first IP that are getting the nodes, pods and services is IPv4. 
+At the time of writting this document the priority IP protocol inside and OpenShift cluster is IPv4, that means that by default the first IP that are getting the nodes, pods and services is IPv4.
 
 **Installation**
 
 The `install-config.yaml` file needs to include both network configurations, IPv4 and IPv6, an example:
-
 
 ```
 networking:
@@ -91,7 +90,9 @@ spec:
   sessionAffinity: None
   type: ClusterIP
 ```
+
 In order to use DualStack, the `spec.ipFamilyPolicy` setting needs to be configured whether to `PreferDualStack` or `RequireDualStack` as:
+
 ```
 apiVersion: v1
 kind: Service

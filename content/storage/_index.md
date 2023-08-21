@@ -99,6 +99,7 @@ status:
 oc get pv
 
 NAME               CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
-pv-victoria-data   10Gi       RWX            Retain           Available  
+pv-victoria-data   10Gi       RWX            Retain           Available
 ```
+
 At this point PV is ready to be used by another pod

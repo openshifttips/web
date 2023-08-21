@@ -12,6 +12,7 @@ weight: 21
 If not configured properly, prometheus can take up all the storage on the nodes, leading to a blocked cluster. This is very common in environments where nodes are running on low storage VMs.
 
 To limit the usage apply the following configuration:
+
 ```
 apiVersion: v1
 kind: ConfigMap

@@ -86,12 +86,12 @@ Or delete the pods to force the reconciliation:
 
 ```
 oc delete pod -n openshift-monitoring -l app=alertmanager
-oc delete pod -n openshift-monitoring -l app=prometheus 
+oc delete pod -n openshift-monitoring -l app=prometheus
 oc delete pod -n openshift-monitoring -l app=grafana
 oc delete pod -n openshift-monitoring -l app.kubernetes.io/name=kube-state-metrics
-oc delete pod -n openshift-monitoring -l k8s-app=openshift-state-metrics 
-oc delete pod -n openshift-monitoring -l name=prometheus-adapter 
-oc delete pod -n openshift-monitoring -l k8s-app=telemeter-client 
+oc delete pod -n openshift-monitoring -l k8s-app=openshift-state-metrics
+oc delete pod -n openshift-monitoring -l name=prometheus-adapter
+oc delete pod -n openshift-monitoring -l k8s-app=telemeter-client
 oc delete pod -n openshift-monitoring -l app.kubernetes.io/component=query-layer
 ```
 

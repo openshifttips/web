@@ -16,11 +16,11 @@ Feel free to contact me at <hello@openshift.tips> or add a new issue to the
 
 This site is based on:
 
-* [Hugo](https://gohugo.io) as the static site framework.
-* [Techdoc Hugo's theme](https://themes.gohugo.io/hugo-theme-techdoc/)
-* [GitHub](https://github.com/openshifttips/web) to host the git repository.
-* [Netlify](https://www.netlify.com) to run the builds and serve the content.
-* [Let's Encrypt](https://letsencrypt.org) (automated via Netlify) for the site certificates.
+- [Hugo](https://gohugo.io) as the static site framework.
+- [Techdoc Hugo's theme](https://themes.gohugo.io/hugo-theme-techdoc/)
+- [GitHub](https://github.com/openshifttips/web) to host the git repository.
+- [Netlify](https://www.netlify.com) to run the builds and serve the content.
+- [Let's Encrypt](https://letsencrypt.org) (automated via Netlify) for the site certificates.
 
 Also, we use [ForwardEmail.net](https://forwardemail.net/).
 

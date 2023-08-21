@@ -16,7 +16,7 @@ oc patch image.config.openshift.io/cluster -p \
 
 # Configure custom/insecure registry to search path in OCP 4.x
 
-In OpenShift 4, the registries configuration is managed by the [Image Registry Operator](https://docs.openshift.com/container-platform/4.3/registry/configuring-registry-operator.html). In order to modify registries parameter, it is only required to modify the `image.config.openshift.io/cluster` object, that manages  the `/etc/containers/{policy.json,registries.conf}` files content under the hood.
+In OpenShift 4, the registries configuration is managed by the [Image Registry Operator](https://docs.openshift.com/container-platform/4.3/registry/configuring-registry-operator.html). In order to modify registries parameter, it is only required to modify the `image.config.openshift.io/cluster` object, that manages the `/etc/containers/{policy.json,registries.conf}` files content under the hood.
 
 In OpenShift versions prior to 4.4 a missing feature of the operator is the ability to remove, modify or append any additional entry to the `unqualified-search-registries` line in the `/etc/containers/registries.conf` file to allow search in insecure registries.
 

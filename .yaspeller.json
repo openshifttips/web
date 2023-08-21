@@ -4,6 +4,5 @@
   "maxRequests": 5,
   "ignoreDigits": true,
   "lang": "en",
-  "dictionary": [
-  ]
+  "dictionary": []
 }

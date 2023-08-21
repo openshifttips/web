@@ -17,9 +17,10 @@ oc patch \
    ingresscontroller/default
 ```
 
-# Moving routers to a specific (infra) node 
+# Moving routers to a specific (infra) node
 
 Label the desired nodes with a particular label (infra) and add a taint to those nodes:
+
 ```
 oc label node worker1  node-role.kubernetes.io/infra=
 oc label node worker2  node-role.kubernetes.io/infra=
@@ -27,8 +28,7 @@ oc adm taint nodes -l node-role.kubernetes.io/infra infra=reserved:NoSchedule in
 ```
 
 Patch the `ingresscontroller` to use the nodes with specific `nodeselector` and a toleration for the previous `taint`:
+
 ```
 oc patch ingresscontroller/default -n  openshift-ingress-operator  --type=merge -p '{"spec":{"nodePlacement": {"nodeSelector": {"matchLabels": {"node-role.kubernetes.io/infra": ""}},"tolerations": [{"effect":"NoSchedule","key": "infra","value": "reserved"},{"effect":"NoExecute","key": "infra","value": "reserved"}]}}}'
 ```
-
-

@@ -125,7 +125,7 @@ Kudos to [Juanlu](https://github.com/juanluisvaladas)
 
 The kubelet configuration is provided by the systemd unit file in `/etc/systemd/system/kubelet.service` which is created by the `01-worker-kubelet` (for workers) or `01-master-kubelet` machineconfig. In current OpenShift versions, that unit sets the `-v` parameter as per `KUBELET_LOG_LEVEL` environment variable, so customizing the log level is as simple as setting that variable through a drop-in for the `kubelet` systemd service unit, like this:
 
-* Connect to the node via `oc debug node`
+- Connect to the node via `oc debug node`
 
 ```
 oc debug node/<node>
@@ -133,16 +133,16 @@ oc debug node/<node>
 chroot /host
 ```
 
-* Create a systemd drop-in that sets `KUBELET_LOG_LEVEL` to the desired value (4 in our example)
+- Create a systemd drop-in that sets `KUBELET_LOG_LEVEL` to the desired value (4 in our example)
 
 ```
-cat <<EOF > /etc/systemd/system/kubelet.service.d/40-logging.conf 
+cat <<EOF > /etc/systemd/system/kubelet.service.d/40-logging.conf
 [Service]
 Environment="KUBELET_LOG_LEVEL=4"
 EOF
 ```
 
-* Reload systemd and restart the service:
+- Reload systemd and restart the service:
 
 ```
 systemctl daemon-reload
@@ -156,27 +156,38 @@ Alternatively, this drop-in could be specified via machineconfig if the log leve
 ```
 curl -k -H "Accept: application/vnd.coreos.ignition+json; version=3.1.0" https://<api_ip>:22623/config/<poolname>
 ```
+
 for example:
+
 ```
 curl -k -H "Accept: application/vnd.coreos.ignition+json; version=3.1.0" https://<api_ip>:22623/config/master
 ```
+
 or
+
 ```
 curl -k -H "Accept: application/vnd.coreos.ignition+json; version=3.1.0" https://<api_ip>:22623/config/worker
 ```
 
 # Using netcat for file transfer from emergency shell
+
 Sometimes things go so badly that we end up with node in emergency shell. With this we can copy off journal (or any other relevant file) outside of that shell so we can attach it to a bug report or examine it with other tools.
 First off save the journal to a file:
+
 ```
 journalctl > journal.log
 ```
+
 On the receving end run:
+
 ```
 nc -l -p 1234 > journal.log
 ```
+
 And then on the emergency console:
+
 ```
 nc -w 3 [destination] 1234 < journal.log
 ```
+
 You'll end up with journal.log on the destination

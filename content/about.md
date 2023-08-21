@@ -21,24 +21,24 @@ Feel free to contact me at <hello@openshift.tips> or add a new issue to the
 
 Check the updated list at <https://github.com/openshifttips/web/graphs/contributors>
 
-* [soukron](https://github.com/openshifttips/web/commits?author=soukron)
-* [palonsoro](https://github.com/openshifttips/web/commits?author=palonsoro)
-* [manuvaldi](https://github.com/openshifttips/web/commits?author=manuvaldi)
-* [josgonza-rh](https://github.com/openshifttips/web/commits?author=josgonza-rh)
-* [aizuddin85](https://github.com/openshifttips/web/commits?author=aizuddin85)
-* [acomabon](https://github.com/openshifttips/web/commits?author=acomabon)
-* [ptrnull](https://github.com/openshifttips/web/commits?author=ptrnull)
-* Others!
+- [soukron](https://github.com/openshifttips/web/commits?author=soukron)
+- [palonsoro](https://github.com/openshifttips/web/commits?author=palonsoro)
+- [manuvaldi](https://github.com/openshifttips/web/commits?author=manuvaldi)
+- [josgonza-rh](https://github.com/openshifttips/web/commits?author=josgonza-rh)
+- [aizuddin85](https://github.com/openshifttips/web/commits?author=aizuddin85)
+- [acomabon](https://github.com/openshifttips/web/commits?author=acomabon)
+- [ptrnull](https://github.com/openshifttips/web/commits?author=ptrnull)
+- Others!
 
 # Howto
 
 This site is based on:
 
-* [Hugo](https://gohugo.io) as the static site framework.
-* [Techdoc Hugo's theme](https://themes.gohugo.io/hugo-theme-techdoc/)
-* [GitHub](https://github.com/openshifttips/web) to host the git repository.
-* [Netlify](https://www.netlify.com) to run the builds and serve the content.
-* [Let's Encrypt](https://letsencrypt.org) (automated via Netlify) for the site certificates.
+- [Hugo](https://gohugo.io) as the static site framework.
+- [Techdoc Hugo's theme](https://themes.gohugo.io/hugo-theme-techdoc/)
+- [GitHub](https://github.com/openshifttips/web) to host the git repository.
+- [Netlify](https://www.netlify.com) to run the builds and serve the content.
+- [Let's Encrypt](https://letsencrypt.org) (automated via Netlify) for the site certificates.
 
 Also, we use [ForwardEmail.net](https://forwardemail.net/).
 
