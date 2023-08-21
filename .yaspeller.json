@@ -4,9 +4,7 @@
   "maxRequests": 5,
   "ignoreDigits": true,
   "lang": "en",
-<<<<<<< HEAD
-  "dictionary": []
-=======
+
   "dictionary": [
     "emoji",
     "CoreOS",
@@ -43,5 +41,4 @@
     "kubeconfig",
     "workaround"
   ]
->>>>>>> e433d39 (Merge openshift.tips and openshift.cloud.ktz + some magic)
 }
