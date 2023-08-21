@@ -19,6 +19,8 @@ Feel free to contact me at <hello@openshift.tips> or add a new issue to the
 
 # Contributors
 
+Check the updated list at <https://github.com/openshifttips/web/graphs/contributors>
+
 * [soukron](https://github.com/openshifttips/web/commits?author=soukron)
 * [palonsoro](https://github.com/openshifttips/web/commits?author=palonsoro)
 * [manuvaldi](https://github.com/openshifttips/web/commits?author=manuvaldi)
@@ -26,6 +28,7 @@ Feel free to contact me at <hello@openshift.tips> or add a new issue to the
 * [aizuddin85](https://github.com/openshifttips/web/commits?author=aizuddin85)
 * [acomabon](https://github.com/openshifttips/web/commits?author=acomabon)
 * [ptrnull](https://github.com/openshifttips/web/commits?author=ptrnull)
+* Others!
 
 # Howto
 
