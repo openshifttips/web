@@ -115,6 +115,7 @@ oc adm release info --commits quay.io/openshift-release-dev/ocp-release:4.1.18 |
 ```
 
 If you prefer the commit URLs directly, use this command instead.
+
 ```
 oc adm release info --commit-urls quay.io/openshift-release-dev/ocp-release:<version>
 ```
@@ -233,67 +234,73 @@ If you want to merge multiple kubeconfig files you can run the following command
 
 1. Ensure there aren't duplicated entries (Context Names or User Names)
 
-    ```
-    grep -A3 -x '\- context:' kubeconfig1 kubeconfig2 kubeconfig3 | egrep "name|user"
-    
-    kubeconfig1-    user: admin
-    kubeconfig1-  name: admin
-    kubeconfig2-    user: admin
-    kubeconfig2-  name: admin
-    kubeconfig3-    user: admin
-    kubeconfig3-  name: admin
-    ```
+   ```
+   grep -A3 -x '\- context:' kubeconfig1 kubeconfig2 kubeconfig3 | egrep "name|user"
+
+   kubeconfig1-    user: admin
+   kubeconfig1-  name: admin
+   kubeconfig2-    user: admin
+   kubeconfig2-  name: admin
+   kubeconfig3-    user: admin
+   kubeconfig3-  name: admin
+   ```
+
 2. There are duplicated users and names so we need to edit the kubeconfig files and assign a correct value for each kubeconfig file
 
-    ```
-    sed -i 's/admin/kube1/' kubeconfig1
-    sed -i 's/admin/kube2/' kubeconfig2
-    sed -i 's/admin/kube3/' kubeconfig3
-    ```
+   ```
+   sed -i 's/admin/kube1/' kubeconfig1
+   sed -i 's/admin/kube2/' kubeconfig2
+   sed -i 's/admin/kube3/' kubeconfig3
+   ```
+
 3. Now we're ready to merge the three kubeconfigs into a single one
-    
-    1. Export all three kubeconfigs
-        
-        ```
-        export KUBECONFIG=/path/to/kubeconfig1:/path/to/kubeconfig2:/path/to/kubeconfig3
-        ```
-    2. Explore the context created
-        
-        ```
-        oc config get-contexts
 
-        CURRENT   NAME    CLUSTER   AUTHINFO   NAMESPACE
-        *         kube1   hub       kube1      
-                  kube2   spoke     kube2      
-                  kube3   spoke2    kube3  
-        ```
-    3. Merge the configs
-        
-        ```
-        oc config view --flatten > /path/to/merged/kubeconfig
-        ```
-    4. Check merged config file
+   1. Export all three kubeconfigs
 
-        ```
-        oc --config /path/to/merged/kubeconfig config view
-        ```
-    5. Now you can export the new Kubeconfig and use `--context [kube1|kube2|kube3]` or `oc config use [kube1|kube2|kube3]` to work with the different clusters
+      ```
+      export KUBECONFIG=/path/to/kubeconfig1:/path/to/kubeconfig2:/path/to/kubeconfig3
+      ```
 
-        ```
-        oc --context kube1 get clusterversion
-        
-        NAME      VERSION                             AVAILABLE   PROGRESSING   SINCE   STATUS
-        version   4.4.0-0.nightly-2020-03-23-010639   True        False         53m     Cluster version is 4.4.0-0.nightly-2020-03-23-010639
+   2. Explore the context created
 
-        oc config use kube2
-        
-        Switched to context "kube2".
+      ```
+      oc config get-contexts
 
-        oc get clusterversion
-        
-        NAME      VERSION                             AVAILABLE   PROGRESSING   SINCE   STATUS
-        version   4.4.0-0.nightly-2020-03-26-010528   True        False         52m     Cluster version is 4.4.0-0.nightly-2020-03-26-010528
-        ```
+      CURRENT   NAME    CLUSTER   AUTHINFO   NAMESPACE
+      *         kube1   hub       kube1
+                kube2   spoke     kube2
+                kube3   spoke2    kube3
+      ```
+
+   3. Merge the configs
+
+      ```
+      oc config view --flatten > /path/to/merged/kubeconfig
+      ```
+
+   4. Check merged config file
+
+      ```
+      oc --config /path/to/merged/kubeconfig config view
+      ```
+
+   5. Now you can export the new Kubeconfig and use `--context [kube1|kube2|kube3]` or `oc config use [kube1|kube2|kube3]` to work with the different clusters
+
+      ```
+      oc --context kube1 get clusterversion
+
+      NAME      VERSION                             AVAILABLE   PROGRESSING   SINCE   STATUS
+      version   4.4.0-0.nightly-2020-03-23-010639   True        False         53m     Cluster version is 4.4.0-0.nightly-2020-03-23-010639
+
+      oc config use kube2
+
+      Switched to context "kube2".
+
+      oc get clusterversion
+
+      NAME      VERSION                             AVAILABLE   PROGRESSING   SINCE   STATUS
+      version   4.4.0-0.nightly-2020-03-26-010528   True        False         52m     Cluster version is 4.4.0-0.nightly-2020-03-26-010528
+      ```
 
 # Show events ordered by timestamp
 
@@ -345,4 +352,3 @@ StorageClass object doesn't have a condition field, so instead, wait for the obj
 ```
 until oc get sc/local-sc >/dev/null 2>&1 ; do sleep 1 ; done
 ```
-

@@ -8,17 +8,21 @@ weight: 18
 ---
 
 # Add HTPasswd authentication (OpenShift 4 only)
+
 ## Create htpasswd file (with admin username)
+
 ```
 htpasswd -c htpasswd admin
 ```
 
 ## Create secret in openshift-config project
+
 ```
 oc create secret generic htpasswd-secret --from-file htpasswd -n openshift-config
 ```
 
 ## Edit cluster OAuth resource
+
 ```
 cat << EOF | oc apply -f -
 apiVersion: config.openshift.io/v1
@@ -39,11 +43,13 @@ EOF
 ```
 
 ## Optional: grant cluster-admin role
+
 ```
 oc adm policy add-cluster-role-to-user cluster-admin admin
 ```
 
 # Remove kubeadmin user
+
 ```
 oc delete secret kubeadmin -n kube-system
 ```

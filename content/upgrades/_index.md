@@ -15,7 +15,7 @@ oc adm upgrade --to-latest
 
 # Force the update to a specific version/hash
 
-* Get the hash of the image version
+- Get the hash of the image version
 
 ```
 CHANNEL='prerelease-4.1'
@@ -23,7 +23,7 @@ ARCH='amd64'
 curl -sH 'Accept: application/json' "https://api.openshift.com/api/upgrades_info/v1/graph?channel=${CHANNEL}&${ARCH}" | jq .
 ```
 
-* Apply the update
+- Apply the update
 
 ```
 oc adm upgrade --allow-explicit-upgrade --force=true --to-image=quay.io/openshift-release-dev/ocp-release@sha256:7e1e73c66702daa39223b3e6dd2cf5e15c057ef30c988256f55fae27448c3b01

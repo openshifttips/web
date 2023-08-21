@@ -14,6 +14,7 @@ oc patch operatorhub.config.openshift.io/cluster -p='{"spec":{"disableAllDefault
 ```
 
 # Use older version catalogs
+
 This is sometimes useful when you want to install older content on a newer cluster (or the riskier opposite option).
 
 I took a snapshot of the existing catalogsources

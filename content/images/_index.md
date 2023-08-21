@@ -73,7 +73,6 @@ curl -X GET "https://quay.io/api/v1/repository/openshift/origin-installer/tag/" 
 
 Please note that [quay.io API](https://docs.quay.io/api/swagger/) is slightly different
 
-
 # Get raw disk usage of all images per namespace
 
 This script provides the sum of the size of all images per namespace algthough it's not considering the disk saving provided by the reuse of the layers.

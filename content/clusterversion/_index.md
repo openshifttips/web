@@ -34,9 +34,9 @@ To add an entry to that list, you can use a JSON Patch to add a [ComponentOverri
 
 ## Get the operator deployment information
 
-* [Extract the OpenShift payloads](oc/#extract-the-openshift-payloads-aka-files-assets-etc).
+- [Extract the OpenShift payloads](oc/#extract-the-openshift-payloads-aka-files-assets-etc).
 
-* Observe the operator definition (api group, kind, name, namespace):
+- Observe the operator definition (api group, kind, name, namespace):
 
 ```
 head -n5 /tmp/mystuff/0000_07_cluster-network-operator_03_daemonset.yaml
@@ -56,7 +56,7 @@ metadata:
 
 ## Create the patch yaml file
 
-* If there are currently no other overrides configured:
+- If there are currently no other overrides configured:
 
 ```yaml
 cat <<EOF >version-patch.yaml
@@ -71,7 +71,7 @@ cat <<EOF >version-patch.yaml
 EOF
 ```
 
-* To add to list of already existing overrides:
+- To add to list of already existing overrides:
 
 ```yaml
 cat <<EOF >version-patch.yaml
@@ -116,8 +116,8 @@ Output:
 
 After updating the ClusterVersion, you can make your desired edits to the unmanaged object.
 
-
 # Disabling the cluster-version operator
+
 (via https://github.com/openshift/cluster-version-operator/blob/master/docs/dev/clusterversion.md#disabling-the-cluster-version-operator)
 
 When you just want to turn off the cluster-version operator instead of fiddling with per-object overrides, you can:

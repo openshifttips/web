@@ -29,7 +29,7 @@ chronyd to use custom servers or a custom setting, it is required to use the
 `machine-config-operator` to modify the files used by the masters and workers
 by the following procedure:
 
-* Create the proper file with your custom tweaks and encode it as base64:
+- Create the proper file with your custom tweaks and encode it as base64:
 
 ```
 cat << EOF | base64
@@ -41,8 +41,8 @@ logdir /var/log/chrony
 EOF
 ```
 
-* Create the MachineConfig file with the base64 string from the previous command
-as:
+- Create the MachineConfig file with the base64 string from the previous command
+  as:
 
 ```
 cat << EOF > ./masters-chrony-configuration.yaml
@@ -76,7 +76,7 @@ EOF
 
 Substitute the base64 string with your own.
 
-* Apply it
+- Apply it
 
 ```
 oc apply -f ./masters-chrony-configuration.yaml
@@ -169,7 +169,7 @@ kind: MachineConfig
 apiVersion: machineconfiguration.openshift.io/v1
 metadata:
   name: 99-worker-mtu
-  creationTimestamp: 
+  creationTimestamp:
   labels:
     machineconfiguration.openshift.io/role: worker
 spec:
