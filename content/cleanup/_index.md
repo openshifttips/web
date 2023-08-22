@@ -35,8 +35,8 @@ spec:
     matchLabels:
       custom-kubelet: enabled
   kubeletConfig:
-    ImageGCHighThresholdPercent: 60
-    ImageGCLowThresholdPercent: 70
+    ImageGCHighThresholdPercent: 70
+    ImageGCLowThresholdPercent: 60
 EOF
 ```
 
